@@ -1,6 +1,6 @@
 # kick&sole
 
-An e-commerce website selling limited edition shoes. The shop name is called 'kick&sole'.
+An e-commerce website selling limited edition shoes. The working title for a shop name is called 'kick&sole' which sounds modern and contemporary.
 
 This project is inspired by my husband's enthusiasm for buy and sell unique, timeless branded shoes.
  
@@ -9,43 +9,63 @@ This project is inspired by my husband's enthusiasm for buy and sell unique, tim
 ### Research
 I interviewed my husband to know more about the quality, price of limited edition shoes. I asked him what his process is like in buying 'potential' shoes. Here's a list of questions
 
-What are the qualities of a sellable shoes (By order of importance)
+**What are the qualities of a sellable shoes (By order of importance)**
 1. By model and design (eg. Jordan 1) (#1 in search engine)
 2. By collaboration between shoe brands and artists (eg. off-white(Virgil Abloh) with nike, kanye west with adidas) (#3 in search engine)
 3. Limited edition (shoes are not common to sell / 'hard-to-find')
 4. Check the stock take (if there is stock available, its not sellable. if it's sold out or hard to add in cart, there's potential for high-sell)
-5. By common asian size (#2 in search engine)
+5. By common asian size > (#2 in search engine)
 6. By reseller's budget 
 
-List of websites he checks every 3 times a week
+**List of websites he checks every 3 times a week**
 - https://www.copgarden.com/
 - https://www.adidas.com.sg/yeezy
 - https://www.nike.com/
 - https://stockx.com/
 
-What is your process in buying the shoes when there's an upcoming new release
+**What is your process in buying the shoes when there's an upcoming new release**
 1. Checks the website for availability of that specific model
 2. Selects the shoe size
 3. Adds to cart (if it fails to add to cart, repeat this process)
 4. Submit payment 
 
-Where do you sell these shoes? 
+**Where do you sell these shoes?**
 1. Carousell
 2. Facebook Marketplace
 
-For ideas in creating wireframe for the 'kicks&sole' website, I did a simple hands-on test using [stocksx.com](https://stockx.com/) with my husbands. These are the directions / questions I asked him. 
+**For ideas in creating wireframe for the 'kicks&sole' website, I did a simple hands-on test using [stocksx.com](https://stockx.com/) as my main reference with my husband. These are the directions / questions I asked him.**
 <dl>
   <dt>Imagine you are about to buy a potential shoes, which part of the page do you first check?</dt>
-  <dd>Answer: I go to the popular release and click on the brand name</dd>
+  <dd> > Answer: I go to the popular release and click on the brand name</dd>
+
+  <dt>Now that we are in the popular page, what do you do next?</dt>
+  <dd> > Answer: I browse the page for the model I'm looking for</dd>
+
+  <dt>When you see the model image, what's your next step?</dt>
+  <dd> > Answer: I check for availability. If it's not available, I browse the other models</dd>
+
+  <dt>Is there a way that you can reserve that model?</dt>
+  <dd> > Answer: No, because this website don't allow you to do it. </dd>
+
+  <dt>When you see that another model is available, what do you do? </dt>
+  <dd> > Answer: I add it to cart. But there's a case that it is difficult to add it in due to high-demand so I have to be patient.</dd>
+
+  <dt>I noticed that this other model with the same brand is available and easy to add to cart. Why is that?</dt>
+  <dd> > Answer: Oh because the size is a smaller size and not that common. So the value may not be as high as I want to sell.</dd>
+
+  <dt>How often do you visit this page?</dt>
+  <dd> > Answer: It depends. If there's no new release coming up, I will check it once a week but if there's is, its 3x a week. </dd>
+
+  <dt>Where do you hear the news about these new release?</dt>
+  <dd> > Answer: Through facebook page or youtube shoe enthusiast. </dd>
+
 </dl>
 
+**User Profile**
+- Male, between 20 years old to 40 years old. 
+- college to working men 
+- active in social media 
 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ## Features
 
