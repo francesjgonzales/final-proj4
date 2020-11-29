@@ -1,13 +1,17 @@
-# kick&sole
+# thenewsole
 
-An e-commerce website selling limited edition shoes. The working title for a shop name is called 'kick&sole' which sounds modern and contemporary.
+An e-commerce website selling limited edition shoes. The working title for a shop name is called 'thenewsole' which sounds modern and contemporary.
 
 This project is inspired by my husband's enthusiasm for buy and sell unique, timeless branded shoes.
  
+
+
 ## UX
  
-### Research
+
+#### RESEARCH
 I interviewed my husband to know more about the quality, price of limited edition shoes. I asked him what his process is like in buying 'potential' shoes. Here's a list of questions
+
 
 **What are the qualities of a sellable shoes (By order of importance)**
 1. By model and design (eg. Jordan 1) (#1 in search engine)
@@ -17,11 +21,13 @@ I interviewed my husband to know more about the quality, price of limited editio
 5. By common asian size > (#2 in search engine)
 6. By reseller's budget 
 
+
 **List of websites he checks every 3 times a week**
 - https://www.copgarden.com/
 - https://www.adidas.com.sg/yeezy
 - https://www.nike.com/
 - https://stockx.com/
+
 
 **What is your process in buying the shoes when there's an upcoming new release**
 1. Checks the website for availability of that specific model
@@ -29,11 +35,14 @@ I interviewed my husband to know more about the quality, price of limited editio
 3. Adds to cart (if it fails to add to cart, repeat this process)
 4. Submit payment 
 
+
 **Where do you sell these shoes?**
 1. Carousell
 2. Facebook Marketplace
 
+
 **For ideas in creating wireframe for the 'kicks&sole' website, I did a simple hands-on test using [stocksx.com](https://stockx.com/) as my main reference with my husband. These are the directions / questions I asked him.**
+
 <dl>
   <dt>Imagine you are about to buy a potential shoes, which part of the page do you first check?</dt>
   <dd> > Answer: I go to the popular release and click on the brand name</dd>
@@ -61,21 +70,63 @@ I interviewed my husband to know more about the quality, price of limited editio
 
 </dl>
 
-**User Profile**
-- Male, between 20 years old to 40 years old. 
-- college to working men 
-- active in social media 
 
-**Wireframe**
+
+**User Profiles**
+
+Majority of the users demographics are based on:
+- Male, between 20 years old to 40 years old. 
+- majority of users are college to working men 
+- active in social media 
+- shoe enthusiast
+- shoe reseller
+ 
+
+1. **Specific buyer who buys for personal use or shoe reseller**
+    - someone who is looking for specific model of a shoe brand
+    - a registered user of the website who will be lead to 'login' page to access his profile
+    - likes to check on reviews in 'review' section of the page
+
+2. **Browser**
+    - someone who is casually browsing through the 'landing page'
+    - likes to research more about the shoe brand and price by checking out the 'landing page', 'most popular' and 'new release' products
+    - a non-member or guest of the website
+
+3. **Admin**
+    - a superuser who will login through the 'admin' page to access the backend page of the website
+    - someone who uploads or updates the product information, images and prices
+    - someone who has the information about the shoes new releases and shoe purchases
+
+
+
+#### DESIGN
+
+- I'm using **Abril Fatface** font by Google Fonts. I picked this for its contemporary style and bold type represents a strong emphasis on the webpage. This font is complemented by Open sans type which will be used for body text, prices, shoe models and reviews, 
+
+- **Color** used will be black and white. I observed that most shoe websites have a plain background. This is to showcase the product details and design. 
+
+- I'm takinga simplistic approach on this website since the focus will be on the shoes. 
+
+- This will be mobile responsive which can be viewed in tablets and mobile phones as well. 
+
+
+
+#### WIREFRAME
+
 Here's the link to [desktop wireframe](https://www.figma.com/proto/UOeEbZ3kND6oXprh5DoQfc/theNewSole?node-id=4%3A677&viewport=-353%2C-728%2C0.31433194875717163&scaling=min-zoom)
 and [mobile wireframe](https://www.figma.com/proto/UOeEbZ3kND6oXprh5DoQfc/theNewSole?node-id=14%3A3&viewport=132%2C985%2C0.1892523318529129&scaling=scale-down)
 
+
+
+
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+Here are what I inted to feature in the website
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
+- **Search bar** - this allows user who wants to check on shoe model's availability or shoe sizes. It will lead to a display result page. 
+- **Add to cart** - 
+allows users X to achieve Y, by having them fill out Z
 - ...
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
