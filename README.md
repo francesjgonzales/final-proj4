@@ -67,7 +67,8 @@ I interviewed my husband to know more about the quality, price of limited editio
 - active in social media 
 
 **Wireframe**
-
+Here's the link to [desktop wireframe](https://www.figma.com/proto/UOeEbZ3kND6oXprh5DoQfc/theNewSole?node-id=4%3A677&viewport=-353%2C-728%2C0.31433194875717163&scaling=min-zoom)
+and [mobile wireframe](https://www.figma.com/proto/UOeEbZ3kND6oXprh5DoQfc/theNewSole?node-id=14%3A3&viewport=132%2C985%2C0.1892523318529129&scaling=scale-down)
 
 ## Features
 
