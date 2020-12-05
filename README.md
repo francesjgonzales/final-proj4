@@ -78,8 +78,11 @@ Majority of the users demographics are based on:
 - Male, between 20 years old to 40 years old. 
 - majority of users are college to working men 
 - active in social media 
+
+The target users of this website will be:
 - shoe enthusiast
-- shoe reseller
+- shoe reseller 
+- admin
  
 
 1. **Specific buyer who buys for personal use or shoe reseller**
@@ -105,7 +108,7 @@ Majority of the users demographics are based on:
 
 - **Color** used will be black and white. I observed that most shoe websites have a plain background. This is to showcase the product details and design. 
 
-- I'm takinga simplistic approach on this website since the focus will be on the shoes. 
+- I'm taking a simple approach to this website to showcase more on the products.
 
 - This will be mobile responsive which can be viewed in tablets and mobile phones as well. 
 
@@ -118,30 +121,42 @@ and [mobile wireframe](https://www.figma.com/proto/UOeEbZ3kND6oXprh5DoQfc/theNew
 
 
 
-
 ## Features
 
-Here are what I inted to feature in the website
+Here are what I intend to feature in the website
  
 ### Existing Features
-- **Search bar** - this allows user who wants to check on shoe model's availability or shoe sizes. It will lead to a display result page. 
-- **Add to cart** - 
-allows users X to achieve Y, by having them fill out Z
-- ...
+- **Search bar** - this allows shoe enthusiast or shoe reseller users to check on shoe model's availability or shoe sizes. It will lead to a display result page. 
+- **Add to cart** - this allows shoe enthusiast or shoe reseller to add products to a cart and checkout. 
+- **Shoe Specification** - this allows shoe enthusiast or shoe reseller to check out the product feature and size availability.
+- **Main page** - this allows she enthusiast or shoe reseller to check the popular, and new release shoes. Prices and model names are shown together with the product images. 
+- **Ratings & Review** - this allows shoe enthusiast and reseller to have a more detailed research about the product and will help them create a decision in adding it to cart.
+    - **Write your review** - This page is for shoe enthusiast / reseller to answer a short form about the product. There's a total of 6 inputs to fill up and answer. The first 2 questions are  as 'overall rating' and 'recommend a product' which have optional answers and the remaining 4 questions asks about a short one sentence about their opinion on the product, a detailed review and to provide a nickname and email. 
+    - **Ratings** - There's an overall rating of up to 5 stars available for shoe enthusiast and resellers to rate a product. 
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- Another feature idea
+- Order Tracker - I'm planning to add an order tracker which will asks for the buyer's order number and email address. 
+- Newsletter signup - To extend website visitors reach, I want to add this option to
+- SEO - optimise the web content to reach top rank in search engine. Focus on writing meaningful image alt text and meta tags.
+
+
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
+In this section, these are the tools, languages, frameworks, and libraries I used for this project. 
+- [HTML](https://www.w3schools.com/html/) 
+    - This is used to create structure for web pages.
+- [CSS](https://www.w3schools.com/css/) 
+    - This is used to style the website by adding fonts, colors and design.
 - [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - Used JQuery minified version for Cloudinary.
+- [Bootstrap](https://getbootstrap.com/) 
+    - This is used for web responsiveness and also used pre-built components.  
+- [Figma](https://www.figma.com/) 
+    - For designing wireframes 
+- [Cloudinary](https://cloudinary.com/) 
+    - For uploading images to cloud for storage.
 
 
 ## Testing
@@ -179,10 +194,14 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The code used for cloudinary was copied from Paul's Django notes 
+- 
+
+The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+
 
 ### Media
-- The photos used in this site were obtained from ...
+- The photos used in this site were obtained from nike, adidas and copgarden websites for the purpose of this project only.
 
 ### Acknowledgements
 
