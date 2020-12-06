@@ -102,17 +102,21 @@
 
     <div class="container">
       <h1 class="header">Most Popular</h1>
+      <div class="row">
       <!-- Three columns of text below the carousel -->
+        {% for shoe in shoes %}
+
         <div class="col-lg-4 mt-5">
+
           <div class="card" style="width: 18rem">
             <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
             <div class="card-body">
               <small>POPULAR</small>
-              {% for shoe in shoes %}
               <p class="model">{{shoe.brand}}</p>
-              <p class="price">{{shoe.price}}</p>
-              <small class="sold-out">SOLD OUT</small>
-              {% endfor %}
+              <p class="price">${{shoe.price}}</p>
+              <p class="size">Size: {{shoe.size}} UK</p>
+              <small class="sold-out">{{shoe.soldOut}}</small>
+              <small class="sold-out">{{shoe.shoeAvail}}</small>
               <br />
               <br />
               <p>
@@ -122,26 +126,9 @@
           </div>
         </div>
         <!-- /.col-lg-4 -->
+        {% endfor %}
 
-        <div class="col-lg-4 mt-5">
-          <div class="card" style="width: 18rem">
-            <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
-            <div class="card-body">
-              <small>POPULAR</small>
-
-              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
-              <p class="price">$300.00</p>
-              <small class="sold-out">SOLD OUT</small>
-              <br />
-              <br />
-              <p>
-                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-lg-4 -->
-      </div>
+  
       <!-- /.row -->
     </div>
 
