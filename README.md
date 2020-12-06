@@ -136,10 +136,14 @@ Here are what I intend to feature in the website
 
 
 ### Features Left to Implement
-- Order Tracker - I'm planning to add an order tracker which will asks for the buyer's order number and email address. 
-- Newsletter signup - To extend website visitors reach, I want to add this option to
-- SEO - optimise the web content to reach top rank in search engine. Focus on writing meaningful image alt text and meta tags.
+- **Order Tracker** - I'm planning to add an order tracker which will asks for the buyer's order number and email address. 
+- **Newsletter signup** - To extend website visitors reach, I want to add this option to
+- **SEO** - optimise the web content to reach top rank in search engine. Focus on writing meaningful image alt text and meta tags.
+- **Chatbot** - To respond to order update enquiries.
 
+## Database Design
+
+**ER** diagram of this project's data base can be access [here]((static/shoe-diagram.pdf))
 
 
 ## Technologies Used
