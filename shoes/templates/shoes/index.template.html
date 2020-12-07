@@ -111,11 +111,11 @@
           <div class="card" style="width: 18rem">
             <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
             <div class="card-body">
-              <small>POPULAR</small>
+              <small class="text-uppercase">{{shoe.shoeCategories}}</small>
               <p class="model">{{shoe.brand}}</p>
               <p class="price">${{shoe.price}}</p>
+              <p class="color">{{shoe.color}}</p>
               <p class="size">Size: {{shoe.size}} UK</p>
-              <small class="sold-out">{{shoe.soldOut}}</small>
               <small class="sold-out">{{shoe.shoeAvail}}</small>
               <br />
               <br />
