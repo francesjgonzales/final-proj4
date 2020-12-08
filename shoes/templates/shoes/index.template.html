@@ -100,23 +100,20 @@
       </div>
     </div>
 
-    <div class="container">
-      <h1 class="header">Most Popular</h1>
+    <div class="container" id="popular">
+      <!-- <h1 class="header">Most Popular</h1> -->
       <div class="row">
-      <!-- Three columns of text below the carousel -->
         {% for shoe in shoes %}
-
         <div class="col-lg-4 mt-5">
-
           <div class="card" style="width: 18rem">
             <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
             <div class="card-body">
-              <small class="text-uppercase">{{shoe.shoeCategories}}</small>
-              <p class="model">{{shoe.brand}}</p>
+              <p class="model">{{shoe.shoeBrand}}</p>
+              <p class="model">{{shoe.shoeModel}}</p>
               <p class="price">${{shoe.price}}</p>
               <p class="color">{{shoe.color}}</p>
               <p class="size">Size: {{shoe.size}} UK</p>
-              <small class="sold-out">{{shoe.shoeAvail}}</small>
+              <small class="availability">{{shoe.shoeAvail}}</small>
               <br />
               <br />
               <p>
@@ -128,89 +125,33 @@
         <!-- /.col-lg-4 -->
         {% endfor %}
 
-  
-      <!-- /.row -->
-    </div>
+{% for newShoe in newShoes %}
 
-    <div class="container">
-      <h1 class="header mt-5">New Release</h1>
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
         <div class="col-lg-4 mt-5">
           <div class="card" style="width: 18rem">
             <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
             <div class="card-body">
-              <marquee
+              <p class="model">{{newShoe.shoeBrand}}</p>
+              <p class="model">{{newShoe.shoeModel}}</p>
+              <p class="price">${{newShoe.price}}</p>
+              <p class="date">Available in {{newShoe.releaseDate}}</p>
+               <marquee
                 behavior="scroll"
                 scrollamount="4"
                 direction="right"
                 loop="infinite"
                 class="marquee"
-                ><small>NEW RELEASE</small></marquee
-              >
-              <p class="shoeModel">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
-              <p class="price">$300.00</p>
-              <small class="sold-out">SOLD OUT</small>
-              <br />
-              <br />
-              <p>
-                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-lg-4 -->
+                ><small style="text-transform:uppercase">{{newShoe.shoeAvail}}</small></marquee>
 
-        <div class="col-lg-4 mt-5">
-          <div class="card" style="width: 18rem">
-            <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
-            <div class="card-body">
-              <marquee
-                behavior="scroll"
-                scrollamount="4"
-                direction="right"
-                loop="infinite"
-                ><small>NEW RELEASE</small></marquee
-              >
-              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
-              <p class="price">$300.00</p>
-              <small class="sold-out">SOLD OUT</small>
-              <br />
-              <br />
-              <p>
-                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
-              </p>
             </div>
           </div>
         </div>
         <!-- /.col-lg-4 -->
-
-        <div class="col-lg-4 mt-5">
-          <div class="card" style="width: 18rem">
-            <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
-            <div class="card-body">
-              <marquee
-                behavior="scroll"
-                scrollamount="4"
-                direction="right"
-                loop="infinite"
-                ><small>NEW RELEASE</small></marquee
-              >
-              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
-              <p class="price">$300.00</p>
-              <small class="sold-out">SOLD OUT</small>
-              <br />
-              <br />
-              <p>
-                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-lg-4 -->
-      </div>
+        {% endfor %}
+  
       <!-- /.row -->
     </div>
+
 
     <footer class="container mt-5">
       <p class="float-right"><a href="#">Back to top</a></p>

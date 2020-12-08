@@ -75,7 +75,7 @@ input[type="search"]:focus {
   font-weight: 700;
 }
 
-.sold-out {
+.availability {
   border-radius: 0px;
   background-color: black;
   padding: 5px;
@@ -83,7 +83,7 @@ input[type="search"]:focus {
   color: antiquewhite;
 }
 
-.p, .header-cart, .input-group-text  {
+.p, .header-cart, .input-group-text, .date  {
   font-family: "Open Sans", sans-serif;
   color: black;
   font-weight: 700;
@@ -108,20 +108,16 @@ input[type="search"]:focus {
 
 marquee {
   /* background-color: #ddd; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   overflow: show;
   white-space: nowrap;
-  word-spacing: 15px;
-  width: 50%;
+  /* word-spacing: 10px; */
+  width: 40%;
 }
-
+/* 
 marquee:hover span {
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
-}
-
-/* #productSpecs {
-  border: 1px solid;
 } */
 
 #eachSize {
