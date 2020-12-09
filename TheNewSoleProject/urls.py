@@ -20,5 +20,6 @@ import shoes.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('shoes/', shoes.views.index)
+    path('shoes/', shoes.views.index),
+    path('shoes/create', shoes.views.create_shoe)
 ]

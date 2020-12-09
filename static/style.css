@@ -164,11 +164,21 @@ marquee:hover span {
 
 #summary-cart {
   background-color: rgb(248, 246, 246);
-  margin: 5;
+  margin: 5%;
   padding: 3%;
 }
 
 .card {
     position: relative;
+
+}
+
+.coming-soon {
+    margin: 0;
+    padding: 3%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    width: 18rem;
 
 }

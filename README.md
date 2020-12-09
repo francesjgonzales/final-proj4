@@ -199,7 +199,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Content
 - The code used for cloudinary was copied from Paul's Django notes 
-- 
+- [Django MultiSelectField](https://pypi.org/project/django-multiselectfield/) 
 
 The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
 
