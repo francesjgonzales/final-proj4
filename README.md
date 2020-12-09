@@ -143,7 +143,7 @@ Here are what I intend to feature in the website
 
 ## Database Design
 
-**ER** diagram of this project's data base can be access [here]((static/shoe-diagram.pdf))
+**ER** diagram of this project's data base can be access [here]((static/shoe_erd2.png))
 
 
 ## Technologies Used
