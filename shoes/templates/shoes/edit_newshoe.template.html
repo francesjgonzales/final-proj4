@@ -62,11 +62,13 @@
     </nav>
 
     <div class="container">
-        <h1>Add Shoes</h1>
+        <h1>Edit {{newShoe.newShoeModel}}</h1>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p}}
             <input type="Submit" />
+              <a href="{% url 'main_shoe' %}">Back</a>
+
         </form>
     </div>
 

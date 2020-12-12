@@ -46,7 +46,7 @@
                 </li>
                 <li class="nav-item mt-1">
                     <button type="button" class="btn-cart">
-                        <svg height="1.4em" viewbox="0 0 16 16" class="bi bi-basket2" fill="currentColor"
+                        <svg height="1.4em" viewBox="0 0 16 16" class="bi bi-basket2" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z" />
@@ -62,11 +62,13 @@
     </nav>
 
     <div class="container">
-        <h1>Add Shoes</h1>
+        <h1>Edit {{shoe.shoeModel}}</h1>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p}}
             <input type="Submit" />
+              <a href="{% url 'main_shoe' %}">Back</a>
+
         </form>
     </div>
 

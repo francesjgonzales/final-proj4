@@ -20,6 +20,11 @@ import shoes.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('shoes/', shoes.views.index),
-    path('shoes/create', shoes.views.create_shoe)
+    path('shoes/', shoes.views.index, name='main_shoe'),
+    path('shoes/create', shoes.views.create_shoe),
+    path('shoes/createnew', shoes.views.create_newshoe),
+    path('shoes/edit_shoe/<shoe_id>', shoes.views.edit_shoe,
+         name='shoe_update'),
+    path('shoes/edit_newShoe/<newShoe_id>', shoes.views.edit_newshoe,
+         name='newshoe_update')
 ]
