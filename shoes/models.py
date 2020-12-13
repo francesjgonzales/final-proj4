@@ -4,6 +4,13 @@ from multiselectfield import MultiSelectField
 
 
 # Create your models here.
+class Brand(models.Model):
+    brand_name = models.CharField(blank=False, max_length=20)
+
+    def __str__(self):
+        return self.brand_name
+
+
 class Shoe(models.Model):
     SHOE_AVAILABILITY = (
         ('In-stock', 'In Stock'),
@@ -28,14 +35,14 @@ class Shoe(models.Model):
     )
 
     shoeModel = models.CharField(blank=False, max_length=255)
-    shoeBrand = models.CharField(blank=False, max_length=255)
+    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
     price = models.IntegerField(blank=False)
     color = models.CharField(blank=False, max_length=155)
     size = MultiSelectField(choices=SHOE_SIZES)
     shoeAvail = models.CharField(max_length=9, choices=SHOE_AVAILABILITY)
 
     def __str__(self):
-        return self.shoeModel + "" + self.shoeBrand
+        return self.shoeModel + "" + self.brand_name
 
 
 class NewShoe(models.Model):
@@ -46,7 +53,7 @@ class NewShoe(models.Model):
     )
 
     shoeModel = models.CharField(blank=False, max_length=255)
-    shoeBrand = models.CharField(blank=False, max_length=255)
+    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
     price = models.IntegerField(blank=False)
     color = models.CharField(blank=False, max_length=155)
     releaseDate = models.DateTimeField(default=datetime.now, blank=True)
