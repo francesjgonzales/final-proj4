@@ -91,6 +91,7 @@
                         <p>
                             <a class="btn" href="#" role="button">Add to cart &raquo;</a>
                             <a href="{% url 'shoe_update' shoe_id=shoe.id %}">Edit</a>
+                            <a href="{% url 'delete_shoe' shoe_id=shoe.id %}">Delete</a>
                         </p>
 
                     </div>
@@ -116,6 +117,9 @@
                         <p>
                             <a class="btn" href="#" role="button">Set reminder &raquo;</a>
                             <a href="{% url 'newshoe_update' newShoe_id=newShoe.id %}">Edit</a>
+
+
+
                         </p>
                     </div>
                 </div>

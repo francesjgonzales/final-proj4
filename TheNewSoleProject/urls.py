@@ -26,5 +26,7 @@ urlpatterns = [
     path('shoes/edit_shoe/<shoe_id>', shoes.views.edit_shoe,
          name='shoe_update'),
     path('shoes/edit_newShoe/<newShoe_id>', shoes.views.edit_newshoe,
-         name='newshoe_update')
+         name='newshoe_update'),
+    path('shoes/delete_shoe/<shoe_id>', shoes.views.delete_shoe,
+         name='delete_shoe')
 ]
