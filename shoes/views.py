@@ -57,7 +57,7 @@ def edit_shoe(request, shoe_id):
 
 
 def edit_newshoe(request, newShoe_id):
-    newshoe_update = get_object_or_404(Shoe, pk=newShoe_id)
+    newshoe_update = get_object_or_404(NewShoe, pk=newShoe_id)
 
     if request.method == "POST":
         form = NewShoeForm(request.POST, instance=newshoe_update)
@@ -79,5 +79,16 @@ def delete_shoe(request, shoe_id):
         return redirect(index)
     else:
         return render(request, 'shoes/delete_shoe.template.html', {
-            "shoe": shoe_to_delete
+            'shoe': shoe_to_delete
+        })
+
+
+def delete_newshoe(request, newShoe_id):
+    newshoe_to_delete = get_object_or_404(NewShoe, pk=newShoe_id)
+    if request.method == 'POST':
+        newshoe_to_delete()
+        return redirect(index)
+    else:
+        return render(request, 'shoes/delete_newshoe.template.html', {
+            'newshoe': newshoe_to_delete
         })
