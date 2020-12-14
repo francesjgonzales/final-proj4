@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .models import Shoe, NewShoe
 from .forms import ShoeForm, NewShoeForm
+from .models import Shoe, NewShoe
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 # Create your views here.
 

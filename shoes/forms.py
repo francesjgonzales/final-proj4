@@ -1,5 +1,6 @@
 from django import forms
 from .models import Shoe, NewShoe
+from cloudinary.forms import CloudinaryJsFileField
 
 
 class ShoeForm(forms.ModelForm):
@@ -7,6 +8,7 @@ class ShoeForm(forms.ModelForm):
         model = Shoe
         fields = ('shoeModel', 'brand_name', 'price',
                   'color', 'size', 'shoeAvail')
+    image = CloudinaryJsFileField()
 
 
 class NewShoeForm(forms.ModelForm):

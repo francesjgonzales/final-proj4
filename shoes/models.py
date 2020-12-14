@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from multiselectfield import MultiSelectField
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -40,9 +41,10 @@ class Shoe(models.Model):
     color = models.CharField(blank=False, max_length=155)
     size = MultiSelectField(choices=SHOE_SIZES)
     shoeAvail = models.CharField(max_length=9, choices=SHOE_AVAILABILITY)
+    image = CloudinaryField()
 
     def __str__(self):
-        return self.shoeModel + "" + self.brand_name
+        return self.shoeModel + "" + self.brand_name.brand_name + self.image
 
 
 class NewShoe(models.Model):
