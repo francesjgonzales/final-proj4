@@ -44,7 +44,7 @@ class Shoe(models.Model):
     image = CloudinaryField()
 
     def __str__(self):
-        return self.shoeModel + "" + self.brand_name.brand_name + self.image
+        return self.shoeModel
 
 
 class NewShoe(models.Model):

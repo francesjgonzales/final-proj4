@@ -62,9 +62,9 @@
         </div>
     </nav>
 
-    <div class="container" id="form">
+    <div class="container">
         <h1>Add Shoes</h1>
-        <form method="POST"  enctype="multipart/form-data">
+        <form method="POST"  id="form">
             {% csrf_token %}
             {{ form.as_p}}
             <input type="Submit" />
@@ -102,7 +102,6 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 
-    {% block js %}
     {% cloudinary_includes %}
     {% cloudinary_js_config %}
     <script>
@@ -149,7 +148,6 @@
         })
     </script>
 
-    {% endblock %}
 
 </body>
 
