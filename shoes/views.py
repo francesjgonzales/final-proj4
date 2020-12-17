@@ -1,6 +1,7 @@
 from .forms import ShoeForm, NewShoeForm
 from .models import Shoe, NewShoe
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def index(request):
     })
 
 
+@login_required
 def create_shoe(request):
     if request.method == "POST":
         form = ShoeForm(request.POST)
