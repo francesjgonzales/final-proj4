@@ -34,6 +34,7 @@ class Sizes(models.Model):
     def __str__(self):
         return self.sizes
 
+
 class Availability(models.Model):
     SHOE_AVAILABILITY = (
         ('In-stock', 'In Stock'),
@@ -42,9 +43,16 @@ class Availability(models.Model):
     )
 
     shoeAvail = models.CharField(max_length=9, choices=SHOE_AVAILABILITY)
-   
+
     def __str__(self):
         return self.shoeAvail
+
+
+class Tags(models.Model):
+    shoeModel = models.CharField(blank=False, max_length=255)
+
+    def __str__(self):
+        return self.shoeModel
 
 
 class Shoe(models.Model):
@@ -55,24 +63,20 @@ class Shoe(models.Model):
     sizes = models.ForeignKey(Sizes, on_delete=models.CASCADE)
     shoeAvail = models.ForeignKey(Availability, on_delete=models.CASCADE)
     image = CloudinaryField()
+    tags = models.ManyToManyField(Tags)
 
     def __str__(self):
         return self.shoeModel
 
 
 class NewShoe(models.Model):
-    SHOE_AVAILABILITY = (
-        ('In-stock', 'In Stock'),
-        ('Sold-out', 'Sold Out'),
-        ('Coming-Soon', 'Coming Soon')
-    )
-
     shoeModel = models.CharField(blank=False, max_length=255)
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
     price = models.IntegerField(blank=False)
     color = models.CharField(blank=False, max_length=155)
     releaseDate = models.DateTimeField(default=datetime.now, blank=True)
-    shoeAvail = models.CharField(max_length=11, choices=SHOE_AVAILABILITY)
+    shoeAvail = models.ForeignKey(Availability, on_delete=models.CASCADE)
+    sizes = models.ForeignKey(Sizes, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.shoeModel

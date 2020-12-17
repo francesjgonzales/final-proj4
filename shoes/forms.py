@@ -7,12 +7,12 @@ class ShoeForm(forms.ModelForm):
     class Meta:
         model = Shoe
         fields = ('shoeModel', 'brand_name', 'price',
-                  'color', 'sizes', 'shoeAvail')
+                  'color', 'sizes', 'shoeAvail', 'tags')
     image = CloudinaryJsFileField()
 
 
 class NewShoeForm(forms.ModelForm):
     class Meta:
         model = NewShoe
-        fields = ('shoeModel', 'brand_name', 'price',
+        fields = ('shoeModel', 'brand_name', 'price', 'sizes',
                   'color', 'releaseDate', 'shoeAvail')
