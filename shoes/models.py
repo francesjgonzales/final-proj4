@@ -12,13 +12,7 @@ class Brand(models.Model):
         return self.brand_name
 
 
-class Shoe(models.Model):
-    SHOE_AVAILABILITY = (
-        ('In-stock', 'In Stock'),
-        ('Sold-out', 'Sold Out'),
-        ('Upcoming', 'Upcoming')
-    )
-
+class Sizes(models.Model):
     SHOE_SIZES = (
         ('5', '5'),
         ('5.5', '5.5'),
@@ -35,12 +29,31 @@ class Shoe(models.Model):
         ('11', '11'),
     )
 
+    sizes = MultiSelectField(choices=SHOE_SIZES)
+
+    def __str__(self):
+        return self.sizes
+
+class Availability(models.Model):
+    SHOE_AVAILABILITY = (
+        ('In-stock', 'In Stock'),
+        ('Sold-out', 'Sold Out'),
+        ('Upcoming', 'Upcoming')
+    )
+
+    shoeAvail = models.CharField(max_length=9, choices=SHOE_AVAILABILITY)
+   
+    def __str__(self):
+        return self.shoeAvail
+
+
+class Shoe(models.Model):
     shoeModel = models.CharField(blank=False, max_length=255)
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
     price = models.IntegerField(blank=False)
     color = models.CharField(blank=False, max_length=155)
-    size = MultiSelectField(choices=SHOE_SIZES)
-    shoeAvail = models.CharField(max_length=9, choices=SHOE_AVAILABILITY)
+    sizes = models.ForeignKey(Sizes, on_delete=models.CASCADE)
+    shoeAvail = models.ForeignKey(Availability, on_delete=models.CASCADE)
     image = CloudinaryField()
 
     def __str__(self):
