@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'shoes',
     'multiselectfield',
     'reviews',
@@ -149,13 +150,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CLOUDINARY = {
     'cloud_name': os.environ.get("CLOUDINARY_CLOUD_NAME"),
