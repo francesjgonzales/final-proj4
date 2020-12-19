@@ -61,7 +61,7 @@ def create_newshoe(request):
         if form.is_valid():
             form.save()
             messages.success(
-                request, f"Upcoming Shoe {form.cleaned_data['shoeModel']} is created")
+                request, f"New Shoe {form.cleaned_data['shoeModel']} is created")
             return redirect(reverse(index))
     else:
         create_newShoe_form = NewShoeForm()
@@ -74,18 +74,19 @@ def edit_shoe(request, shoe_id):
     shoe_update = get_object_or_404(Shoe, pk=shoe_id)
 
     if request.method == "POST":
-        form = ShoeForm(request.POST, instance=shoe_update)
-        if form.is_valid():
-            form.save()
-            messages.success(
-                request, f"Shoe {form.cleaned_data['shoeModel']} is edited"
-            )
+        shoe_form = ShoeForm(request.POST, instance=shoe_update)
+        if shoe_form.is_valid():
+            shoe_form.save()
+            messages.success(request, f"Shoe {form.cleaned_data['shoeModel']} is edited")
             return redirect(reverse(index))
+        else:
+            return render(request, 'shoes/edit_shoe.template.html', {
+                'form': shoe_form
+                })
     else:
         shoe_form = ShoeForm(instance=shoe_update)
         return render(request, 'shoes/edit_shoe.template.html', {
-            'form': shoe_form,
-            'shoe': shoe_update
+            'form': shoe_form
         })
 
 
@@ -93,18 +94,21 @@ def edit_newshoe(request, newShoe_id):
     newshoe_update = get_object_or_404(NewShoe, pk=newShoe_id)
 
     if request.method == "POST":
-        form = NewShoeForm(request.POST, instance=newshoe_update)
-        if form.is_valid():
-            form.save()
+        new_shoe_form = NewShoeForm(request.POST, instance=newshoe_update)
+        if new_shoe_form.is_valid():
+            new_shoe_form.save()
             messages.success(
                 request, f"Upcoming Shoe {form.cleaned_data['shoeModel']} is edited"
             )
             return redirect(reverse(index))
+        else:
+            return render(request, 'shoes/edit_newshoe.template.html', {
+                'form': new_shoe_form
+            })
     else:
         newshoe_form = NewShoeForm(instance=newshoe_update)
         return render(request, 'shoes/edit_newshoe.template.html', {
             'form': newshoe_form,
-            'newshoe': newshoe_update
         })
 
 

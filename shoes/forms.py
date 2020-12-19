@@ -6,8 +6,7 @@ from cloudinary.forms import CloudinaryJsFileField
 class ShoeForm(forms.ModelForm):
     class Meta:
         model = Shoe
-        fields = ('shoeModel', 'brand_name', 'price', 'shoe_size',
-                  'color', 'shoeAvail', 'tags')
+        fields = ('__all__')
     image = CloudinaryJsFileField()
 
 
