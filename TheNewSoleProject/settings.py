@@ -154,6 +154,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 
 CLOUDINARY = {
     'cloud_name': os.environ.get("CLOUDINARY_CLOUD_NAME"),
