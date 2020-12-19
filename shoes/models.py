@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from cloudinary.models import CloudinaryField
 from multiselectfield import MultiSelectField
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -56,6 +57,7 @@ class Shoe(models.Model):
     shoeAvail = models.ForeignKey(Stock, on_delete=models.CASCADE)
     image = CloudinaryField()
     tags = models.ManyToManyField(Tag)
+    adminUser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.shoeModel
