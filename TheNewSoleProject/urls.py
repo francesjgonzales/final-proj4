@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 import shoes.views
+import reviews.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +32,6 @@ urlpatterns = [
     path('shoes/delete_shoe/<shoe_id>', shoes.views.delete_shoe,
          name='delete_shoe'),
     path('shoes/delete_newshoe/<newShoe_id>',
-         shoes.views.delete_newshoe, name='delete_newshoe')
+         shoes.views.delete_newshoe, name='delete_newshoe'),
+    path('reviews/', reviews.views.index)
 ]
