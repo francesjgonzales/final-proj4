@@ -15,6 +15,20 @@ def index(request):
     })
 
 
+def view_shoe(request):
+    view_shoes = Shoe.objects.all()
+    return render(request, 'shoes/view_shoe.template.html', {
+        'shoes': view_shoes,
+    })
+
+
+def view_newshoe(request):
+    view_newshoes = Shoe.objects.all()
+    return render(request, 'shoes/view_newshoe.template.html', {
+        'newshoes': view_newshoes,
+    })
+
+
 @login_required
 def create_shoe(request):
     if request.method == "POST":

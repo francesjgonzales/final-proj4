@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('shoes/', shoes.views.index, name='main_shoe'),
+    path('shoes/view', shoes.views.view_shoe),
+    path('shoes/viewnew', shoes.views.view_newshoe),
     path('shoes/create', shoes.views.create_shoe),
     path('shoes/createnew', shoes.views.create_newshoe),
     path('shoes/edit_shoe/<shoe_id>', shoes.views.edit_shoe,
