@@ -54,11 +54,11 @@ class Shoe(models.Model):
     price = models.IntegerField(blank=False)
     color = models.CharField(blank=False, max_length=155)
     shoeAvail = models.ForeignKey(Stock, on_delete=models.CASCADE)
-    image = CloudinaryField()
+    image = CloudinaryField(blank=True)
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
-        return self.shoeModel + str(self.shoe_size)
+        return self.shoeModel
 
 
 class NewShoe(models.Model):
