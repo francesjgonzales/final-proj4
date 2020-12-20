@@ -22,9 +22,9 @@ def main(request):
 
 
 def shoe_info(request, shoe_id):
-    shoe_info = get_object_or_404(Shoe, pk=shoe_id)
+    shoe = get_object_or_404(Shoe, pk=shoe_id)
     return render(request, 'shoes/shoe_info.template.html', {
-        'shoes': shoe_info
+        'shoe': shoe
     })
 
 
