@@ -4,12 +4,17 @@
 {% load static %}
 
 {%block content %}
+
 <div id="form">
+    <h1 class="header">Add product</h1>
+
     <form method="POST" enctype="multipart/form-data">
         {%csrf_token%}
         {{form|crispy}}
         
         <input type="submit" />
+                <a href="{% url 'main_shoe' %}">Cancel</a>
+
     </form>
 </div>
 

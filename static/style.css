@@ -83,6 +83,16 @@ input[type="search"]:focus {
   color: antiquewhite;
 }
 
+.releaseDate {
+  border-radius: 0px;
+  padding: 5px;
+  margin: 1px;
+  color: black;
+  text-decoration: underline;
+  font-weight: 700;
+
+}
+
 .p, .header-cart, .input-group-text, .date  {
   font-family: "Open Sans", sans-serif;
   color: black;
@@ -111,8 +121,8 @@ marquee {
   /* margin: 0 auto; */
   overflow: show;
   white-space: nowrap;
-  /* word-spacing: 10px; */
-  width: 40%;
+  word-spacing: 20px;
+  width: 25%;
 }
 /* 
 marquee:hover span {

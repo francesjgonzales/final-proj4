@@ -18,14 +18,6 @@ def main(request):
     shoes = Shoe.objects.all()
     return render(request, 'shoes/main.template.html', {
         'shoes': shoes,
-        'newShoes': newShoes
-    })
-
-
-def view_shoe(request, shoe_id):
-    view_shoes = get_object_or_404(Shoe, pk=shoe_id)
-    return render(request, 'shoes/view_shoe.template.html', {
-        'shoes': view_shoes,
     })
 
 
@@ -42,8 +34,7 @@ def create_shoe(request):
         form = ShoeForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(
-                request, f"New Shoe {form.cleaned_data['shoeModel']} is created")
+            messages.success(request, f"{form.cleaned_data['shoeModel']} is created")
             return redirect(reverse(index))
     else:
         create_shoe_form = ShoeForm()

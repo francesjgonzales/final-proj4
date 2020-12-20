@@ -23,15 +23,6 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">thenewsole</a>
-
-        <!-- <a class="navbar-brand" href="#homeLogo">
-        <img
-          src="/static/tnsLogo.svg"
-          height="50px"
-          alt="tnsLogo"
-          loading="lazy"
-        />
-      </a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,20 +30,24 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav text-right ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">About us <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sneakers</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <!-- LOGIN START  -->
                     <a class="nav-link" href="#">
                         {% if request.user.is_authenticated  %}
-                        <p>Welcome {{request.user}}</p>
+                        <p>Welcome, {{request.user}}</p>
                         {% else %}
-                        <p>Please <a href="/accounts/login">Login</a></p>
+                        <p>Please <a href="/accounts/login">Login | Sign up</a></p>
                         {%endif%}</a>
-                    <!-- LOGIN END -->
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Log out</a>
+                </li>
+                <!-- LOGIN END -->
                 </li>
                 <li class="nav-item mt-1">
                     <button type="button" class="btn-cart">
@@ -75,7 +70,6 @@
         {% if messages %}
         <div class="alert alert-success">
             {% for message in messages %} <p>{{ message }}</p> {% endfor %}
-
         </div>
         {% endif %}
 
@@ -89,10 +83,11 @@
     </div>
 
     <div class="container" id="popular">
-        <h1 class="header">{%block head_title %} {% endblock %}}</h1>
+        <h1 class="header">{%block head_title %}{% endblock %}</h1>
         <div class="row">
             {% block content %} {% endblock %}
         </div>
+
     </div>
 
 
@@ -100,8 +95,7 @@
         <p class="float-right"><a href="#">Back to top</a></p>
         <p>
             &copy; 2020 the new sole &middot;
-            <a href="#">About us</a> &middot; <a href="#">Sneakers</a> &middot;
-            <a href="#">Shop</a>
+            <a href="#">Home</a> &middot; <a href="#">Contact</a> &middot;
         </p>
     </footer>
 

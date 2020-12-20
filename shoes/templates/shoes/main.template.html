@@ -2,62 +2,37 @@
 {% load cloudinary %}
 
 {% block content %}
-    <div class="container" id="popular">
-        <!-- <h1 class="header">Most Popular</h1> -->
-        <div class="row">
-            {% for shoe in shoes %}
-            <div class="col-lg-4 mt-5">
-                <div class="card" style="width: 18rem">
+<div class="container" id="popular">
+    <h1 class="header"></h1>
 
-                    {% cloudinary shoe.image width=287 height=300 crop='fill' %}
-                    <div class="card-body">
-                        <p class="model">{{shoe.brand_name}}</p>
-                        <p class="model">{{shoe.shoeModel}}</p>
-                        <p class="price">${{shoe.price}}</p>
-                        <p class="color">{{shoe.color}}</p>
-                        <p class="size">Size: {{shoe.shoe_size}}</p>
-                        <p class="releaseDate">{{shoe.releaseDate}}</p>
-                        <small class="availability">{{shoe.shoeAvail}}</small>
-                        <br />
-                        <br />
-                        <p>
-                            <a class="btn" href="#" role="button">Add to cart &raquo;</a>
-                        </p>
+    <div class="row">
+        {% for shoe in shoes %}
+        <div class="col-lg-4 mt-5">
+            <div class="card" style="width: 18rem">
 
-                    </div>
+                {% cloudinary shoe.image width=285 height=300 crop='fill' %}
+                <div class="card-body">
+                    <p class="model">{{shoe.brand_name}}</p>
+                    <p class="model">{{shoe.shoeModel}}</p>
+                    <p class="price">${{shoe.price}}</p>
+                    <p class="color">{{shoe.color}}</p>
+                    <p class="size">Size: {{shoe.shoe_size}}</p>
+                    <small class="availability">{{shoe.shoeAvail}}</small>
+                    <small class="releaseDate">{{shoe.releaseDate}}</small>
+                    <br />
+                    <br />
+                    <p>
+                        <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+                    </p>
                 </div>
             </div>
-            <!-- /.col-lg-4 -->
-            {% endfor %}
 
-            {% for newShoe in newShoes %}
-
-            <div class="col-lg-4 mt-5">
-                <div class="card" style="width: 18rem">
-                    <div class="coming-soon">
-                        <p>COMING SOON</p>
-                        <p style="font-size: 1.5em">{{newShoe.releaseDate}}</p>
-                    </div>
-
-                    <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
-                    <div class="uploaded_info_folder">
-
-                    </div>
-                    <div class="card-body">
-                        <p class="model">{{newShoe.brand_name}}</p>
-                        <p class="model">{{newShoe.shoeModel}}</p>
-                        <p class="price">${{newShoe.price}}</p>
-                        <p>
-                            <a class="btn" href="#" role="button">Set reminder &raquo;</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col-lg-4 -->
-            {% endfor %}
-
-            <!-- /.row -->
         </div>
-    </div>
+        <!-- /.col-lg-4 -->
+        {% endfor %}
 
-    {% endblock %}
+        <!-- /.row -->
+    </div>
+</div>
+
+{% endblock %}

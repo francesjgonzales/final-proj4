@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import datetime
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 
@@ -36,7 +35,7 @@ class Shoe(models.Model):
     shoeModel = models.CharField(blank=False, max_length=255)
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
     price = models.IntegerField(blank=False)
-    shoe_size = models.CharField(blank=False, max_length=4)
+    shoe_size = models.CharField(blank=False, max_length=50)
     color = models.CharField(blank=False, max_length=155)
     shoeAvail = models.ForeignKey(Stock, on_delete=models.CASCADE)
     releaseDate = models.CharField(max_length=80, blank=True)
