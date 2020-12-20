@@ -1,0 +1,176 @@
+{% extends 'base.template.html' %}
+{% load cloudinary %}
+
+
+{% block content %}
+
+<!-- product specs -->
+<div class="container mt-5" id="review">
+    <h1 class="header mt-5">Write a review</h1>
+    <div class="media">
+        {% for shoe in shoes %}
+
+        {% cloudinary shoe.image width=287 height=300 crop='fill' %}
+
+        <img src="../static/CP9652_03_standard3.jpg" class="mr-3" alt="..." id="mediumthumbnail">
+        <div class="media-body">
+            <p class="model">{{shoe.shoeModel}}</p>
+            <p class="price">${{shoe.price}}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<hr style="width:100%">
+
+
+<div class="container mt-5">
+    <form>
+        {% block content %}
+        {% for each_review in reviews %}
+        {{each_review.starRating}}
+        {{each_review.opinion}}
+        {{each_review.details}}
+        {{each_review.recommend}}
+        {% endfor %}
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Your overall rating</h3>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <div class="col-6">
+                <h3>Would you recommend this product?</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                        checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-6">
+                <h3>Write your review</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">What’s your opinion in one sentence?</label>
+                    <input type="text" class="form-control" id="summary" placeholder="Summary">
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Provide a detailed review about the shoes</label>
+                    <input type="text" class="form-control" id="your-review" placeholder="Your review">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-8">
+                <h3>Personal Information</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Name</label>
+                    <input type="text" class="form-control" id="summary" placeholder="Name">
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Email</label>
+                    <input type="text" class="form-control" id="summary" placeholder="Name">
+                </div>
+            </div>
+        </div>
+
+        <p>
+            <a class="btn" href="#" role="button">Submit</a>
+        </p>
+    </form>
+
+</div>
+
+
+
+
+<!-- rating and review -->
+<div class="container">
+    <h1 class="header mt-5">Ratings & Reviews</h1>
+
+    <div class="media mt-5">
+        <img src="../static/CP9652_03_standard5.jpg" class="mr-3" alt="..." id="smallthumbnail">
+        <div class="review">
+            <div class="media-body">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <h5 class="text-uppercase">love them</h5>
+                <p>Runs a little big so go down a half size. I have wide feet and they are super comfortable.</p>
+                <small class="text-muted">USER123</small>
+            </div>
+        </div>
+    </div>
+
+    <hr style="width:100%">
+
+    <div class="media">
+        <img src="../static/CP9652_03_standard3.jpg" class="mr-3" alt="..." id="smallthumbnail">
+        <div class="review">
+            <div class="media-body">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <h5 class="text-uppercase">love them</h5>
+                <p>Runs a little big so go down a half size. I have wide feet and they are super comfortable.</p>
+                <small class="text-muted">USER123</small>
+            </div>
+        </div>
+    </div>
+
+    <hr style="width:100%">
+
+    <div class="media">
+        <img src="../static/CP9652_03_standard5.jpg" class="mr-3" alt="..." id="smallthumbnail">
+        <div class="review">
+            <div class="media-body">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <h5 class="text-uppercase">love them</h5>
+                <p>Runs a little big so go down a half size. I have wide feet and they are super comfortable.</p>
+                <small class="text-muted">USER123</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- end rating and review -->
+
+
+    {% endblock %}

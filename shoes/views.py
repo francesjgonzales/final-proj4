@@ -25,8 +25,8 @@ def main(request):
     })
 
 
-def view_shoe(request):
-    view_shoes = Shoe.objects.all()
+def view_shoe(request, shoe_id):
+    view_shoes = get_object_or_404(Shoe, pk=shoe_id)
     return render(request, 'shoes/view_shoe.template.html', {
         'shoes': view_shoes,
     })
