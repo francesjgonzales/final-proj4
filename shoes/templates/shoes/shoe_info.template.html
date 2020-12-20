@@ -1,0 +1,31 @@
+_{% extends 'base.template.html' %}
+{% load static %}
+{% load cloudinary %}
+
+{% block content %}
+
+        <div class="row">
+            {% for shoe in shoes %}
+            <div class="col-lg-4 mt-5">
+                <div class="card" style="width: 18rem">
+
+                    {% cloudinary shoe.image width=287 height=300 crop='fill' %}
+                    <div class="card-body">
+                        <p class="model">{{shoe.brand_name}}</p>
+                        <p class="model">{{shoe.shoeModel}}</p>
+                        <p class="price">${{shoe.price}}</p>
+                        <p class="color">{{shoe.color}}</p>
+                        <p class="size">Size: {{shoe.shoe_size}}</p>
+                        <small class="availability">{{shoe.shoeAvail}}</small>
+                        <br />
+                        <br />
+                        <p>
+                            <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    {% endblock %}
+    

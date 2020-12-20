@@ -1,5 +1,5 @@
-from .forms import ShoeForm, NewShoeForm
-from .models import Shoe, NewShoe
+from .forms import ShoeForm
+from .models import Shoe
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
@@ -9,16 +9,13 @@ from django.contrib import messages
 
 def index(request):
     shoes = Shoe.objects.all()
-    newShoes = NewShoe.objects.all()
     return render(request, 'shoes/index.template.html', {
         'shoes': shoes,
-        'newShoes': newShoes
     })
 
 
 def main(request):
     shoes = Shoe.objects.all()
-    newShoes = NewShoe.objects.all()
     return render(request, 'shoes/main.template.html', {
         'shoes': shoes,
         'newShoes': newShoes
@@ -32,10 +29,10 @@ def view_shoe(request, shoe_id):
     })
 
 
-def view_newshoe(request):
-    view_newshoes = Shoe.objects.all()
-    return render(request, 'shoes/view_newshoe.template.html', {
-        'newshoes': view_newshoes,
+def shoe_info(request, shoe_id):
+    shoe_info = get_object_or_404(Shoe, pk=shoe_id)
+    return render(request, 'shoes/shoe_info.template.html', {
+        'shoes': shoe_info
     })
 
 
@@ -52,21 +49,6 @@ def create_shoe(request):
         create_shoe_form = ShoeForm()
         return render(request, 'shoes/create_shoe.template.html', {
             'form': create_shoe_form
-        })
-
-
-def create_newshoe(request):
-    if request.method == "POST":
-        form = NewShoeForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(
-                request, f"New Shoe {form.cleaned_data['shoeModel']} is created")
-            return redirect(reverse(index))
-    else:
-        create_newShoe_form = NewShoeForm()
-        return render(request, 'shoes/create_newshoe.template.html', {
-            'form': create_newShoe_form
         })
 
 
@@ -91,28 +73,6 @@ def edit_shoe(request, shoe_id):
         })
 
 
-def edit_newshoe(request, newShoe_id):
-    newshoe_update = get_object_or_404(NewShoe, pk=newShoe_id)
-
-    if request.method == "POST":
-        new_shoe_form = NewShoeForm(request.POST, instance=newshoe_update)
-        if new_shoe_form.is_valid():
-            new_shoe_form.save()
-            messages.success(
-                request, f"Upcoming Shoe {form.cleaned_data['shoeModel']} is edited"
-            )
-            return redirect(reverse(index))
-        else:
-            return render(request, 'shoes/edit_newshoe.template.html', {
-                'form': new_shoe_form
-            })
-    else:
-        newshoe_form = NewShoeForm(instance=newshoe_update)
-        return render(request, 'shoes/edit_newshoe.template.html', {
-            'form': newshoe_form,
-        })
-
-
 def delete_shoe(request, shoe_id):
     shoe_to_delete = get_object_or_404(Shoe, pk=shoe_id)
     if request.method == 'POST':
@@ -122,15 +82,4 @@ def delete_shoe(request, shoe_id):
     else:
         return render(request, 'shoes/delete_shoe.template.html', {
             'shoe': shoe_to_delete
-        })
-
-
-def delete_newshoe(request, newShoe_id):
-    newshoe_to_delete = get_object_or_404(NewShoe, pk=newShoe_id)
-    if request.method == 'POST':
-        newshoe_to_delete()
-        return redirect(index)
-    else:
-        return render(request, 'shoes/delete_newshoe.template.html', {
-            'newshoe': newshoe_to_delete
         })

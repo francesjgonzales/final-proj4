@@ -1,31 +1,340 @@
-{% extends 'base.template.html' %}
-{% load static %}
-{% load cloudinary %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-{% block content %}
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
 
-        <div class="row">
-            {% for shoe in shoes %}
-            <div class="col-lg-4 mt-5">
-                <div class="card" style="width: 18rem">
+    <link rel="stylesheet" href="../static/style.css" type="text/css" />
 
-                    {% cloudinary shoe.image width=287 height=300 crop='fill' %}
-                    <div class="card-body">
-                        <p class="model">{{shoe.brand_name}}</p>
-                        <p class="model">{{shoe.shoeModel}}</p>
-                        <p class="price">${{shoe.price}}</p>
-                        <p class="color">{{shoe.color}}</p>
-                        <p class="size">Size: {{shoe.shoe_size}}</p>
-                        <small class="availability">{{shoe.shoeAvail}}</small>
-                        <br />
-                        <br />
-                        <p>
-                            <a class="btn" href="#" role="button">Add to cart &raquo;</a>
-                        </p>
+    <title>theNewSole</title>
+  </head>
 
-                    </div>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">thenewsole</a>
+
+      <!-- <a class="navbar-brand" href="#homeLogo">
+        <img
+          src="/static/tnsLogo.svg"
+          height="50px"
+          alt="tnsLogo"
+          loading="lazy"
+        />
+      </a> -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav text-right ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >About us <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sneakers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item mt-1">
+            <button type="button" class="btn-cart">
+              <svg
+              height="1.4em"
+              viewBox="0 0 16 16"
+              class="bi bi-basket2"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"
+              />
+            </svg>
+               <span class="badge">9</span>
+              <span class="sr-only">unread messages</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- product specs -->
+    <div class="container mt-5" id="productSpecs">
+      <div class="row mb-3">
+        <div class="col-md-8 themed-grid-col">
+          <div class="pb-3">
+            <!-- insert carousel -->
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="../static/CP9652_03_standard.jpg" class="d-block w-100" alt="shoe1">
                 </div>
+                <div class="carousel-item">
+                  <img src="../static/CP9652_03_standard2.jpg" class="d-block w-100" alt="shoe2">
+                </div>
+                <div class="carousel-item">
+                  <img src="../static/CP9652_03_standard3.jpg" class="d-block w-100" alt="shoe3">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-            {% endfor %}
-    {% endblock %}
-    
+            <!-- end carousel -->
+
+          </div>
+
+
+
+        </div>
+
+        <!-- insert product info -->
+        <div class="col-md-4 themed-grid-col">
+          <marquee
+          behavior="scroll"
+          scrollamount="4"
+          direction="right"
+          loop="infinite"
+          ><small>NEW RELEASE</small></marquee
+        >
+        <br>
+        <br>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+          <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
+              <p class="price">$300.00</p>
+              <!-- <small class="sold-out">SOLD OUT</small> -->
+        <br>
+        <br>
+        <p class="mb-1">Select size</p>
+        <div class="row mb-2" id="tableSize">  
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">5 UK</a>
+            </div>
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">7 UK</a>
+            </div>
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">8 UK</a>
+            </div>
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">8.5 UK</a>
+            </div>
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">9 UK</a>
+            </div>
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">10 UK</a>
+            </div>
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">11 UK</a>
+            </div>
+            <div class="col-3 themed-grid-col">
+              <a class="btn" href="#" role="button" id="eachSize">11.5 UK</a>
+            </div>
+        </div>
+        <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+
+        </div>
+        <!-- end product info -->
+        
+      </div>
+    </div>
+    <!-- end product specs -->
+
+    <hr style="width:100%">
+
+
+<!-- you might also like -->
+    <div class="container mt-5">
+      <h1 class="header">You might also like</h1>
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-6 col-sm-4 themed-grid-col mt-2">
+          <div class="card" style="width: 100%">
+            <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
+            <div class="card-body">
+              <small>POPULAR</small>
+              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
+              <p class="price" >$300.00</p>
+              <small class="sold-out">SOLD OUT</small>
+              <br />
+              <br />
+              <p>
+                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-lg-4 -->
+
+        <div class="col-6 col-sm-4 themed-grid-col mt-2">
+          <div class="card" style="width: 100%">
+            <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
+            <div class="card-body">
+              <small>POPULAR</small>
+
+              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
+              <p class="price">$300.00</p>
+              <small class="sold-out">SOLD OUT</small>
+              <br />
+              <br />
+              <p>
+                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-lg-4 -->
+
+        <div class="col-6 col-sm-4 themed-grid-col mt-2">
+          <div class="card" style="width: 100%">
+            <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
+            <div class="card-body">
+              <small>POPULAR</small>
+
+              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
+              <p class="price" >$300.00</p>
+              <small class="sold-out">SOLD OUT</small>
+              <br />
+              <br />
+              <p>
+                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-lg-4 -->
+
+        <div class="col-6 col-sm-4 themed-grid-col mt-2">
+          <div class="card" style="width: 100%">
+            <img src="../static/shoe1.png" class="card-img-top" alt="shoe1" />
+            <div class="card-body">
+              <small>POPULAR</small>
+
+              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
+              <p class="price">$300.00</p>
+              <small class="sold-out">SOLD OUT</small>
+              <br />
+              <br />
+              <p>
+                <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-lg-4 -->
+
+      </div>
+      <!-- /.row -->
+    </div>
+<!-- end you might also like -->
+
+
+<!-- rating and review -->
+    <div class="container">
+      <h1 class="header mt-5">Ratings & Reviews</h1>
+      <div class="review">
+        <div class="media-body">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <h5 class="text-uppercase">love them</h5>
+          <p>Runs a little big so go down a half size. I have wide feet and they are super comfortable.</p>
+          <small class="text-muted">USER123</small>
+        </div>
+      </div>
+      <hr style="width:100%">
+      <div class="review">
+        <div class="media-body">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <h5 class="text-uppercase">worth the purchase!</h5>
+          <p>The quality is good and i love the design!</p>
+          <small class="text-muted">USER321</small>
+        </div>
+      </div>
+      <hr style="width:100%">
+      <div class="review">
+        <div class="media-body">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <h5 class="text-uppercase">Great Shoes!</h5>
+          <p>Its very comfy. The price is reasonable.</p>
+          <small class="text-muted">SHOE FANATIC</small>
+        </div>
+      </div>
+
+      <p class="mt-5">
+        <a class="btn" href="#" role="button">Write a review</a>
+      </p>
+    </div>
+<!-- end rating and review -->
+
+    <footer class="container mt-5">
+      <p class="float-right"><a href="#">Back to top</a></p>
+      <p>
+        &copy; 2020 the new sole &middot;
+        <a href="#">About us</a> &middot; <a href="#">Sneakers</a> &middot;
+        <a href="#">Shop</a>
+      </p>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
