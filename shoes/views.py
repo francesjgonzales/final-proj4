@@ -1,16 +1,33 @@
-from .forms import ShoeForm
-from .models import Shoe
+from .forms import ShoeForm, SearchForm
+from .models import Shoe, Brand
+from reviews.forms import ReviewForm
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 
 
 def index(request):
     shoes = Shoe.objects.all()
+
+    if request.GET:
+        queries = ~Q(pk__in=[])
+
+        if 'brand_name' in request.GET and request.GET['brand_name']:
+            brand_name = request.GET['brand_name']
+            queries = queries & Q(brand_name__icontains=brand_name)
+
+        if 'shoeModel' in request.GET and request.GET['shoeModel']:
+            shoeModel = request.GET['shoeModel']
+            queries = queries & Q(shoeModel__icontains=shoeModel)
+
+    brand_name = Brand.objects.all()
+    search_form = SearchForm(request.GET)
     return render(request, 'shoes/index.template.html', {
         'shoes': shoes,
+        'search_form': search_form
     })
 
 
@@ -23,9 +40,13 @@ def main(request):
 
 def shoe_info(request, shoe_id):
     shoe = get_object_or_404(Shoe, pk=shoe_id)
+    shoes = Shoe.objects.all()
+    review_form = ReviewForm()
     return render(request, 'shoes/shoe_info.template.html', {
-        'shoe': shoe
-    })
+            'shoe': shoe,
+            'shoes': shoes,
+            'form': review_form
+        })
 
 
 @login_required
@@ -34,7 +55,8 @@ def create_shoe(request):
         form = ShoeForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f"{form.cleaned_data['shoeModel']} is created")
+            messages.success(
+                request, f"{form.cleaned_data['shoeModel']} is created")
             return redirect(reverse(index))
     else:
         create_shoe_form = ShoeForm()

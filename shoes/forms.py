@@ -1,5 +1,5 @@
 from django import forms
-from .models import Shoe
+from .models import Shoe, Brand
 from cloudinary.forms import CloudinaryJsFileField
 
 
@@ -8,3 +8,9 @@ class ShoeForm(forms.ModelForm):
         model = Shoe
         fields = ('__all__')
     image = CloudinaryJsFileField()
+
+
+class SearchForm(forms.Form):
+    shoeModel = forms.CharField(required=False, max_length=255)
+    brand_name = forms.ModelChoiceField(
+        queryset=Brand.objects.all(), required=False)

@@ -1,0 +1,19 @@
+{% extends 'base.template.html' %}
+{% load crispy_forms_tags %}
+
+{%block content %}
+<div class="container">
+    <h1 class="header">Write a review</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form|crispy}}
+        
+        <input type="submit" />
+        <a href="{% url 'view_shoe_info' %}">Cancel</a>
+
+    </form>
+</div>
+
+{% endblock %}
+
