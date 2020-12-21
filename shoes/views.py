@@ -2,7 +2,7 @@ from .forms import ShoeForm, SearchForm
 from .models import Shoe, Brand
 from reviews.forms import ReviewForm
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
 
@@ -11,10 +11,18 @@ from django.db.models import Q
 
 def index(request):
     shoes = Shoe.objects.all()
+    return render(request, 'shoes/index.template.html', {
+        'shoes': shoes,
+    })
+
+
+def search(request):
+    shoe_search = Shoe.objects.all()
+    brand_name = Brand.objects.all()
+    search_form = SearchForm(request.GET)
+    queries = ~Q(pk__in=[])
 
     if request.GET:
-        queries = ~Q(pk__in=[])
-
         if 'brand_name' in request.GET and request.GET['brand_name']:
             brand_name = request.GET['brand_name']
             queries = queries & Q(brand_name__icontains=brand_name)
@@ -23,8 +31,8 @@ def index(request):
             shoeModel = request.GET['shoeModel']
             queries = queries & Q(shoeModel__icontains=shoeModel)
 
-    brand_name = Brand.objects.all()
-    search_form = SearchForm(request.GET)
+    shoes = shoe_search.filter(queries)
+
     return render(request, 'shoes/index.template.html', {
         'shoes': shoes,
         'search_form': search_form
