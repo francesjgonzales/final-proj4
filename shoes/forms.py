@@ -11,7 +11,7 @@ class ShoeForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    class Meta:
-        shoeModel = forms.CharField(required=False, max_length=255)
-        brand_name = forms.ModelChoiceField(
-            queryset=Brand.objects.all(), required=False)
+    shoeModel = forms.CharField(
+        required=False, max_length=255, label='search')
+    brand_name = forms.ModelChoiceField(
+        queryset=Brand.objects.all(), required=False)

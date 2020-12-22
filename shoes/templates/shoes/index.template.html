@@ -1,14 +1,16 @@
 {% extends 'base.template.html' %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 
 {% block content %}
 <div class="container" id="popular">
     <h1 class="header"></h1>
-    <form method = "GET">
+
+    <form method="GET" >
         {{search_form|crispy}}
-        <input type="submit" value="Search"/>
+
 
     </form>
 
@@ -29,7 +31,8 @@
                     <br />
                     <br />
                     <p>
-                        <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
+                        <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart
+                            &raquo;</a>
                         <a href="{% url 'shoe_update' shoe_id=shoe.id %}">Edit</a>
                         <a href="{% url 'delete_shoe' shoe_id=shoe.id %}">Delete</a>
                         <a href="{% url 'view_shoe_info' shoe_id=shoe.id %}">See more</a>

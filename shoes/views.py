@@ -11,27 +11,26 @@ from django.db.models import Q
 
 def index(request):
     shoes = Shoe.objects.all()
-    return render(request, 'shoes/index.template.html', {
-        'shoes': shoes,
-    })
-
-
-def search(request):
-    shoe_search = Shoe.objects.all()
-    brand_name = Brand.objects.all()
-    search_form = SearchForm(request.GET)
-    queries = ~Q(pk__in=[])
 
     if request.GET:
+        queries = ~Q(pk__in=[])
+
         if 'brand_name' in request.GET and request.GET['brand_name']:
             brand_name = request.GET['brand_name']
-            queries = queries & Q(brand_name__icontains=brand_name)
+            queries = queries & Q(brand_name__in=brand_name)
 
         if 'shoeModel' in request.GET and request.GET['shoeModel']:
             shoeModel = request.GET['shoeModel']
             queries = queries & Q(shoeModel__icontains=shoeModel)
 
-    shoes = shoe_search.filter(queries)
+        if 'shoeModel' in request.GET and request.GET['shoeModel']:
+            shoeModel = request.GET['shoeModel']
+            queries = queries & Q(shoeModel__icontains=shoeModel)
+
+        shoes = shoes.filter(queries)
+
+    brand_name = Brand.objects.all()
+    search_form = SearchForm(request.GET)
 
     return render(request, 'shoes/index.template.html', {
         'shoes': shoes,
@@ -51,10 +50,10 @@ def shoe_info(request, shoe_id):
     shoes = Shoe.objects.all()
     review_form = ReviewForm()
     return render(request, 'shoes/shoe_info.template.html', {
-            'shoe': shoe,
-            'shoes': shoes,
-            'form': review_form
-        })
+        'shoe': shoe,
+        'shoes': shoes,
+        'form': review_form
+    })
 
 
 @login_required
