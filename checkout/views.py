@@ -20,40 +20,33 @@ def checkout(request):
     line_items = []
     all_shoe_ids = []
 
-    for shoe_id, shoes in cart.items():
-        shoe = get_object_or_404(Shoe, pk=shoe_id)
+    for shoe_id, cart_item in cart.items():
+        shoes = get_object_or_404(Shoe, pk=shoe_id)
 
-        # create line item
-        # you see all the possible properties of a line item at:
-        # https://stripe.com/docs/api/invoices/line_item
         item = {
-            "name": shoe.shoeModel,
-            "amount": int(shoe.price * 100),
-            "quantity": shoe['qty'],
+            "name": shoes.shoeModel,
+            "amount": int(shoes.price * 100),
+            "quantity": cart_item['qty'],
             "currency": "usd",
 
         }
 
         line_items.append(item)
         all_shoe_ids.append({
-            'shoe_id': shoe_id.id,
+            'shoe_id': shoes.id,
             'qty': cart_item['qty']
         })
 
-    # get the current website
     current_site = Site.objects.get_current()
 
-    # get the domain name
     domain = current_site.domain
 
-    # SEE EXPLANATION B
-    # create a payment session to represent the current transaction
     session = stripe.checkout.Session.create(
         payment_method_types=["card"],  # take credit cards
         line_items=line_items,
         client_reference_id=request.user.id,
         metadata={
-            "all_shoe_ids": ",".join(all_shoe_ids)
+            "all_shoe_ids": json.dumps(all_shoe_ids)
         },
         mode="payment",
         success_url=domain + reverse("checkout_success"),

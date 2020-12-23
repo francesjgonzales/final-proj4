@@ -6,6 +6,7 @@ Cart
 {% load cloudinary %}
 
 {%block content %}
+<a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
 
     {%for key, i in cart.items %}
     <div class="card">
