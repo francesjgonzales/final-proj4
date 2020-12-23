@@ -5,3 +5,4 @@ def cart_contents(request):
         'shopping_cart': shoe_cart,
         'number_of_items': len(shoe_cart)
     }
+    
