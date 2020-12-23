@@ -34,7 +34,7 @@ class Tag(models.Model):
 class Shoe(models.Model):
     shoeModel = models.CharField(blank=False, max_length=255)
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    price = models.IntegerField(blank=False)
+    price = models.DecimalField(max_digits=10, decimal_places=2, blank=False)
     shoe_size = models.CharField(blank=False, max_length=50)
     color = models.CharField(blank=False, max_length=155)
     shoeAvail = models.ForeignKey(Stock, on_delete=models.CASCADE)

@@ -1,101 +1,30 @@
 {% extends 'base.template.html' %}
+{% load cloudinary %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{%block title%}
+Cart
+{%endblock%}
 
 {%block content %}
-{%for key, cart_item in cart.items %}
+
+{%for key, item in cart.items %}
 <div class="card">
-    <div class="card-title">{{cart_item.title}}</div>
+    <div class="card-title">{{item.shoeModel}}</div>
     <div class="card-body">
-    <p>
-        Quantity:{{cart_item.qty}}<br/>
-        Cost: {{cart_item.cost}}
-    </p>
-    <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart_route' shoe_id=cart_item.id %}">Remove</a>
+        {% cloudinary shoe.image width=285 height=300 crop='fill' %}
+
+        <form method="POST" action="{% url 'edit_cart' shoe_id=item.shoe_id %}">
+
+            {%csrf_token%}
+            Quantity:<input name="qty" type="text" value="{{item.qty}}" style="width:20px">
+            <input type="submit" class="btn btn-primary btn-sm" value="Update Quantity" />
+        </form>
+        <p>Cost: {{item.price}}</p>
+        <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart' shoe_id=item.shoe_id %}">Remove</a>
     </div>
 </div>
 {%endfor%}
 
-
-<!-- cart information -->
-      <div class="row mt-3">
-        <div class="col-sm-5">
-          <div class="media">
-            <img src="../static/CP9652_03_standard3.jpg" class="mr-3" alt="..." id="mediumthumbnail">
-            <div class="media-body">
-              <p class="model">Jordan 1 Retro High - COJP Midnight Navy (GS)</p>
-
-              <!-- product size -->
-              <div class="btn-group" id="cart-price">
-                <small class="model">Size</small><br>
-                <button class="btn btn-secondary btn-sm" type="button"><small>10.5 UK</small></button>
-                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">10.5 UK</a>
-                  <a class="dropdown-item" href="#">11 UK</a>
-                </div>
-              </div>
-              <!-- end product size -->
-
-              <!-- product quantity -->
-              <div class="btn-group" id="cart-price">
-                <small class="model">Quantity</small><br>
-                <button class="btn btn-secondary btn-sm" type="button"><small>1</small></button>
-                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">1</a>
-                  <a class="dropdown-item" href="#">2</a>
-                </div>
-              </div>
-              <!-- end product quantity -->
-              
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-2">
-                <div class="col-sm">
-                  <small><a href="#" class="remove mt-4">Remove</a></small>
-                </div>
-              </div>
-             
-
-            </div>
-          </div>
-        </div> 
-
-        <div class="col-sm-3">
-          <div class="input-group-append" id="price">
-            <span class="input-group-text">$</span>
-            <span class="input-group-text">0.00</span>
-          </div>
-        </div>
-
-        <div class="col-sm-3"  id="summary-cart">
-          <h5 class="header-cart">Summary</h5>
-          <div class="input-group">
-            <small>Subtotal</small>
-            <!-- <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"> -->
-            <div class="input-group-append">
-              <span class="input-group-text"  style="text-indent: 78px">$</span>
-              <span class="input-group-text">0.00</span>
-            </div>
-          </div>
-          <div class="input-group">
-            <small>*Tax included and shipping calculated at checkout</small>
-          </div>
-
-          <hr style="width:100%">
-
-          <div class="input-group">
-            <small style="font-weight:700">TOTAL</small>
-            <div class="input-group-append">
-              <span class="input-group-text" style="text-indent: 78px">$</span>
-              <span class="input-group-text">0.00</span>
-            </div>
-          </div>
-          <a class="btn mt-5" href="#" role="button">Checkout &raquo;</a>
-
-        </div>
-      </div>
-    </div>
-    <!-- end cart -->
-    {%endblock%}
+{%endblock%}
