@@ -35,7 +35,7 @@ def remove_from_cart(request, shoe_id):
         del cart[shoe_id]
         request.session['shopping_cart'] = cart
         messages.success(request, "Shoes is removed from cart")
-        return redirect(reverse('main_shoe'))
+    return redirect(reverse('main_shoe'))
 
 
 def edit_quantity(request, shoe_id):
