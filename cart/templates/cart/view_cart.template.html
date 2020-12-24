@@ -1,0 +1,11 @@
+{% extends 'base.template.html' %}
+{% load cloudinary %}
+
+{% block content %}
+    {% for key, i in cart.items %}
+            {% cloudinary shoe.image width=285 height=300 crop='fill' %}
+
+    <li>{{i.shoeModel}} - {{i.price}}</li> 
+    {% endfor %}
+
+{% endblock %}
