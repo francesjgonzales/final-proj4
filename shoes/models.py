@@ -34,7 +34,6 @@ class Tag(models.Model):
 class Shoe(models.Model):
     shoeModel = models.CharField(blank=False, max_length=255)
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    price = models.IntegerField(blank=False)
     shoe_size = models.CharField(blank=False, max_length=50)
     color = models.CharField(blank=False, max_length=155)
     shoeAvail = models.ForeignKey(Stock, on_delete=models.CASCADE)
@@ -42,6 +41,7 @@ class Shoe(models.Model):
     image = CloudinaryField()
     tags = models.ManyToManyField(Tag)
     adminUser = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    price = models.DecimalField(max_digits=10, decimal_places=3, blank=False)
 
     def __str__(self):
         return self.shoeModel
