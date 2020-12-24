@@ -1,11 +1,71 @@
 {% extends 'base.template.html' %}
 {% load cloudinary %}
 
-{% block content %}
-    {% for key, i in cart.items %}
-            {% cloudinary shoe.image width=285 height=300 crop='fill' %}
+{%block title%}
+the new sole
+{%endblock%}
 
-    <li>{{i.shoeModel}} - {{i.price}}</li> 
-    {% endfor %}
+{% block content %}
+
+
+<div class="container mt-5" id="review">
+    <div class="row">
+        <div class="col-sm-8">
+            <h5 class="header-cart">Shopping cart</h5>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+                {% for key, i in cart.items %}
+
+        <div class="col-sm-8">
+            <div class="media">
+                <div class="mr-3">
+                    {% cloudinary i.image width=180 height=180 crop='fill' %}
+                </div>
+
+                <div class="media-body">
+                    <p class="model">{{i.shoeModel}} </p>
+                    <!-- product size & quantity -->
+                    <div class="cart-price">
+                        <small class="model mr-3">Size: {{i.shoe_size}}</small>
+                        <small class="model">Quantity: {{i.qty}}</small>
+                        <small class="input-group-text">${{i.price}}</small>
+                        <small><a href="{% url 'remove_from_cart' shoe_id=i.id%}" class="remove mt-4">Remove</a></small>
+                    </div>
+                    <!-- end product size & quantity -->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        <div class="col-sm-4" id="summary-cart">
+            <h5 class="header-cart">Summary</h5>
+            <div class="input-group">
+                <small>Subtotal</small>
+                <div class="input-group-append">
+                    <span class="input-group-text" style="text-indent: 78px">$</span>
+                    <span class="input-group-text">{{i.price}}</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <small>*Tax included and shipping calculated at checkout</small>
+            </div>
+
+            <hr style="width:100%">
+
+            <div class="input-group">
+                <small style="font-weight:700">TOTAL</small>
+                <div class="input-group-append">
+                    <span class="input-group-text" style="text-indent: 78px">$</span>
+                    <span class="input-group-text">{{i.price}}</span>
+                </div>
+            </div>
+            <a class="btn mt-5" href="#" role="button">Checkout &raquo;</a>
+
+        </div>
+    </div>
+</div>
 
 {% endblock %}
