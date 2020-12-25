@@ -6,6 +6,7 @@ from django.contrib.sites.models import Site
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from shoes.models import Shoe
+from .models import Purchase
 
 
 # Create your views here.
@@ -69,5 +70,43 @@ def checkout_cancelled(request):
 
 @csrf_exempt
 def payment_completed(request):
-    print('request.body')
+    endpoint_secret = settings.ENDPOINT_SECRET
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+        print("Invalid payload")
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Signature is invalid
+        print("Invalid signature")
+        return HttpResponse(status=400)
+
+    # 2. process the order
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+        handle_payment(session)
+
     return HttpResponse(status=200)
+
+
+def handle_payment(session):
+    metadata = session['metadata']
+    user = get_object_or_404(User, pk=session['client_reference_id'])
+    all_shoe_ids = json.loads(metadata['all_shoe_ids'])
+    for order_item in all_shoe_ids:
+        shoe = get_object_or_404(Shoe, pk=order_item['shoe_id'])
+
+        # Create the purchase model and save it manually
+        purchase = Purchase()
+        purchase.shoe = shoe
+        purchase.user = user
+        purchase.qty = order_item['qty']
+        purchase.price = shoe.price
+
+        # remember to save the model
+        purchase.save()
