@@ -53,4 +53,6 @@ def remove_from_cart(request, shoe_id):
         request.session['shopping_cart'] = cart
         messages.info(request, 'Item is removed from your cart')
 
-    return redirect(reverse('main_shoe'))
+    return redirect(reverse('view_cart'))
+
+
