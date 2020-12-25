@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from shoes.models import Shoe
 
+
 # Create your views here.
 
 
