@@ -201,8 +201,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The code used for cloudinary was copied from Paul's Django notes 
 - [Django MultiSelectField](https://pypi.org/project/django-multiselectfield/) 
 - cart icon svg code copied from [bootstrap](https://icons.getbootstrap.com/icons/basket2/)
-
-The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The code for price cart was copied from [Yi Sheng Lee's project](https://github.com/YiShengLee/Golden-Bee-Shop/blob/master/Cart/templates/view_cart.template.html)
 
 
 ### Media
