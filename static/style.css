@@ -83,6 +83,19 @@ input[type="search"]:focus {
   color: antiquewhite;
 }
 
+.badge [href]{
+    color: white;
+    align-content: center;
+    padding: 0 5px;
+    vertical-align: center;
+    border-radius: 10px;
+    margin-left: -3px; 
+}
+
+.badge-warning {
+    background-color: black;
+}
+
 .releaseDate {
   border-radius: 0px;
   padding: 5px;

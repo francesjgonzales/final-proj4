@@ -1,6 +1,4 @@
 from django.shortcuts import render, reverse, HttpResponse, get_object_or_404
-
-# import settings so that we can access the public stripe key
 import stripe
 import json
 from django.conf import settings
@@ -21,11 +19,12 @@ def checkout(request):
     all_shoe_ids = []
 
     for shoe_id, cart_item in cart.items():
-        shoes = get_object_or_404(Shoe, pk=shoe_id)
+        shoe = get_object_or_404(Shoe, pk=shoe_id)
 
+        # items in dictionary is prefix by stripes
         item = {
-            "name": shoes.shoeModel,
-            "amount": int(shoes.price * 100),
+            "name": shoe.shoeModel,
+            "amount": int(shoe.price * 100),
             "quantity": cart_item['qty'],
             "currency": "usd",
 
@@ -33,7 +32,7 @@ def checkout(request):
 
         line_items.append(item)
         all_shoe_ids.append({
-            'shoe_id': shoes.id,
+            'shoe_id': shoe.id,
             'qty': cart_item['qty']
         })
 
@@ -69,46 +68,5 @@ def checkout_cancelled(request):
 
 @csrf_exempt
 def payment_completed(request):
-    # 1. verify that the data is actually sent by Stripe
-    endpoint_secret = settings.ENDPOINT_SECRET
-    payload = request.body
-    # retrieve the signature
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
-
-    try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, endpoint_secret
-        )
-    except ValueError as e:
-        # Invalid payload
-        print("Invalid payload")
-        return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
-        # Signature is invalid
-        print("Invalid signature")
-        return HttpResponse(status=400)
-
-    # 2. process the order
-    if event['type'] == 'checkout.session.completed':
-        session = event['data']['object']
-        handle_payment(session)
-
+    print('request.body')
     return HttpResponse(status=200)
-
-
-def handle_payment(session):
-    metadata = session['metadata']
-    user = get_object_or_404(User, pk=session['client_reference_id'])
-    all_shoe_ids = json.loads(metadata['all_shoe_ids'])
-    for order_item in all_shoe_ids:
-        shoes = get_object_or_404(Shoe, pk=order_item['all_shoe_ids'])
-
-        # Create the purchase model and save it manually
-        purchase = Purchase()
-        purchase.book = shoes
-        purchase.user = user
-        purchase.qty = order_item['qty']
-        purchase.price = shoes.price
-
-        # remember to save the model
-        purchase.save()
