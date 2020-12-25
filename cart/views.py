@@ -22,7 +22,8 @@ def add_to_cart(request, shoe_id):
         }
     else:
         cart[shoe_id]['qty'] += 1
-        cart[shoe_id]['total_price'] = round(int(cart[shoe_id]['qty']) * float(cart[shoe_id]['price']), 2)
+        cart[shoe_id]['total_price'] = round(
+            int(cart[shoe_id]['qty']) * float(cart[shoe_id]['price']), 2)
 
     request.session['shopping_cart'] = cart
     messages.success(request, 'Item is added to your cart')
@@ -31,8 +32,15 @@ def add_to_cart(request, shoe_id):
 
 def view_cart(request):
     cart = request.session.get('shopping_cart', {})
+    total_price = 0.00
+    grand_total_price = 0.00
+    for key, i in cart.items():
+        total_price == i['total_price']
+        grand_total_price += i['total_price']
+
     return render(request, 'cart/view_cart.template.html', {
-        'cart': cart
+        'cart': cart,
+        'grand_total_price': round(grand_total_price, 2)
     })
 
 

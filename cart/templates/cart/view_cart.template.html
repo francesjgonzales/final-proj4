@@ -13,10 +13,11 @@ the new sole
         <div class="col-sm-8">
             <h5 class="header-cart">Shopping cart</h5>
         </div>
+
     </div>
 
-    <div class="row mt-3">
-                {% for key, i in cart.items %}
+    <div class="row mt-3" id="shoe_items">
+        {% for key, i in cart.items %}
 
         <div class="col-sm-8">
             <div class="media">
@@ -38,31 +39,34 @@ the new sole
             </div>
         </div>
         {% endfor %}
+    </div>
 
-
-        <div class="col-sm-4" id="summary-cart">
+    <div class="row">
+        <div class="col-sm" id="summary-cart">
             <h5 class="header-cart">Summary</h5>
-            <div class="input-group">
-                <small>Subtotal</small>
-                <div class="input-group-append">
-                    <span class="input-group-text" style="text-indent: 78px">$</span>
-                    <span class="input-group-text">{{i.price}}</span>
-                </div>
-            </div>
-            <div class="input-group">
-                <small>*Tax included and shipping calculated at checkout</small>
-            </div>
+            <table style="width:100%">
+                <tr>
+                    <td> <small>Subtotal</small>
+                    </td>
+                    <td> <span class="input-group-text">${{grand_total_price|floatformat:2}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <small>*Tax included and shipping calculated at checkout</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <small style="font-weight:700">TOTAL</small>
+                    </td>
+                    <td> <span class="input-group-text">${{grand_total_price|floatformat:2}}</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn" href="#" role="button">Checkout &raquo;</a>
 
-            <hr style="width:100%">
+                    </td>
+                </tr>
 
-            <div class="input-group">
-                <small style="font-weight:700">TOTAL</small>
-                <div class="input-group-append">
-                    <span class="input-group-text" style="text-indent: 78px">$</span>
-                    <span class="input-group-text">{{i.price}}</span>
-                </div>
-            </div>
-            <a class="btn mt-5" href="#" role="button">Checkout &raquo;</a>
+            </table>
 
         </div>
     </div>
