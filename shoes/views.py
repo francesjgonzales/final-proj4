@@ -9,6 +9,13 @@ from django.db.models import Q
 # Create your views here.
 
 
+def home(request):
+    shoes = Shoe.objects.all()
+    return render(request, 'shoes/home.template.html', {
+        'shoes': shoes
+    })
+
+
 def index(request):
     shoes = Shoe.objects.all()
 
@@ -18,10 +25,6 @@ def index(request):
         if 'brand_name' in request.GET and request.GET['brand_name']:
             brand_name = request.GET['brand_name']
             queries = queries & Q(brand_name__in=brand_name)
-
-        if 'shoeModel' in request.GET and request.GET['shoeModel']:
-            shoeModel = request.GET['shoeModel']
-            queries = queries & Q(shoeModel__icontains=shoeModel)
 
         if 'shoeModel' in request.GET and request.GET['shoeModel']:
             shoeModel = request.GET['shoeModel']

@@ -54,5 +54,3 @@ def remove_from_cart(request, shoe_id):
         messages.info(request, 'Item is removed from your cart')
 
     return redirect(reverse('view_cart'))
-
-

@@ -1,5 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@400;700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 375px) {
+  * {
+    font-size: medium;
+    box-sizing: border-box;
+  }
+}
+
+#main-text {
+  margin: auto;
+  padding: auto;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 10%;
+}
+
 .search-box {
   margin: 1.5em;
   padding: 5em;
@@ -60,7 +82,7 @@ input[type="search"]:focus {
 
 .navbar-brand {
   font-family: "Abril Fatface", cursive;
-  font-size: x-large;
+  font-size: 2rem;
 }
 
 .shoeModel {
@@ -112,6 +134,13 @@ input[type="search"]:focus {
   font-weight: 700;
 }
 
+.main-text-card {
+    font-family: "Open Sans", sans-serif;
+    font-size: medium;
+    margin: 1px;
+    padding: 5px;
+}
+
 .input-group-text  {
   font-family: "Open Sans", sans-serif;
   color: black;
@@ -128,20 +157,6 @@ input[type="search"]:focus {
   text-decoration: underline;
 
 }
-
-marquee {
-  /* background-color: #ddd; */
-  /* margin: 0 auto; */
-  overflow: show;
-  white-space: nowrap;
-  word-spacing: 20px;
-  width: 25%;
-}
-/* 
-marquee:hover span {
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-} */
 
 #eachSize {
   font-size: smaller;
@@ -173,7 +188,6 @@ marquee:hover span {
   color: black;
 }
 
-
 .form-control, .input-group-text, .dropdown-toggle, .btn-secondary {
   background-color: transparent;
   border: hidden;
@@ -191,7 +205,10 @@ marquee:hover span {
 }
 
 .card {
+    font-family: "Open Sans", sans-serif;
     position: relative;
+    border: none;
+    margin-top: 15%;
 }
 
 .media {
@@ -205,13 +222,13 @@ marquee:hover span {
     background-color: black;
     color: white;
     width: 18rem;
-
 }
 
 table, th, td {
   border: 0, 0, 1px, solid black;
   border-collapse: collapse;
 }
+
 th, td {
   padding: 15px;
 }

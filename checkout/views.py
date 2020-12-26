@@ -20,22 +20,22 @@ def checkout(request):
     line_items = []
     all_shoe_ids = []
 
-    for shoe_id, cart_item in cart.items():
+    for shoe_id, i in cart.items():
         shoe = get_object_or_404(Shoe, pk=shoe_id)
 
         # items in dictionary is prefix by stripes
         item = {
             "name": shoe.shoeModel,
             "amount": int(shoe.price * 100),
-            "quantity": cart_item['qty'],
-            "currency": "usd",
+            "quantity": i['qty'],
+            "currency": "sgd",
 
         }
 
         line_items.append(item)
         all_shoe_ids.append({
             'shoe_id': shoe.id,
-            'qty': cart_item['qty']
+            'qty': i['qty']
         })
 
     current_site = Site.objects.get_current()
@@ -73,11 +73,13 @@ def payment_completed(request):
     endpoint_secret = settings.ENDPOINT_SECRET
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
 
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, endpoint_secret
         )
+
     except ValueError as e:
         print("Invalid payload")
         return HttpResponse(status=400)
@@ -98,13 +100,14 @@ def handle_payment(session):
     metadata = session['metadata']
     user = get_object_or_404(User, pk=session['client_reference_id'])
     all_shoe_ids = json.loads(metadata['all_shoe_ids'])
+
     for order_item in all_shoe_ids:
         shoe = get_object_or_404(Shoe, pk=order_item['shoe_id'])
 
         # Create the purchase model and save it manually
         purchase = Purchase()
-        purchase.shoe = shoe
-        purchase.user = user
+        purchase.shoe_id = shoe
+        purchase.user_id = user
         purchase.qty = order_item['qty']
         purchase.price = shoe.price
 
