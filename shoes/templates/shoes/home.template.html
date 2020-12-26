@@ -1,5 +1,6 @@
 {% extends 'base.template.html' %}
 {% load cloudinary %}
+{% load static %}
 
 {% block content %}
 
@@ -14,8 +15,8 @@
 
 <div class="container">
   <div class="row row-cols-3">
-    <div class="col"><img src="/static/adidas-Yeezy-Clay-Brown.jpg" class="img-fluid" alt="nike-stone"></div>
-    <div class="col"><img src="/static/supreme-nike.jpg" class="img-fluid" alt="nike-stone"></div>
+    <div class="col"><img src="{% static 'adidas-Yeezy-Clay-Brown.jpg' %}" class="img-fluid" alt="nike-stone"></div>
+    <div class="col"><img src="{% static 'supreme-nike.jpg' %}" class="img-fluid" alt="nike-stone"></div>
  <div class="col">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -35,11 +36,11 @@
             </div>
         </div>
     </div>
-    <div class="col"><img src="/static/kobe_proto.jpg" class="img-fluid" alt="adidas-yeezy"></div>
-    <div class="col"><img src="/static/nike_space_hippie.jpeg" class="img-fluid" alt="adidas-yeezy"></div>
+    <div class="col"><img src="{% static 'kobe_proto.jpg'%}" class="img-fluid" alt="adidas-yeezy"></div>
+    <div class="col"><img src="{% static 'nike_space_hippie.jpeg' %}" class="img-fluid" alt="adidas-yeezy"></div>
     
-    <div class="col"><img src="/static/nike-stone.jpg" class="img-fluid" alt="nike-stone"></div>
-    <div class="col"><img src="/static/bape.jpg" class="img-fluid" alt="bape"></div>
+    <div class="col"><img src="{% static 'nike-stone.jpg' %}" class="img-fluid" alt="nike-stone"></div>
+    <div class="col"><img src="{% static 'bape.jpg'%}" class="img-fluid" alt="bape"></div>
     <div class="col">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
