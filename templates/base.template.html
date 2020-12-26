@@ -39,7 +39,7 @@
                     <!-- LOGIN START  -->
                     <a class="nav-link" href="#">
                         {% if request.user.is_authenticated %}
-                        <p>Welcome, {{request.user}}</p>
+                        <p>{{request.user}}</p>
                         {% else %}
                         <p><a href="/accounts/login">Login</a></p>
                         {%endif%}</a>

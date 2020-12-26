@@ -13,4 +13,4 @@ class Purchase(models.Model):
     qty = models.IntegerField(blank=False)
 
     def __str__(self):
-        return f"Purchase no {self.shoe.id} by user {self.user.id}"
+        return f"Purchase no {self.shoe_id} by user {self.user_id}"

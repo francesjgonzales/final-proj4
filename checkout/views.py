@@ -61,6 +61,7 @@ def checkout(request):
 
 
 def checkout_success(request):
+    request.session['shopping_cart'] = {}
     return HttpResponse("Payment completed successfully")
 
 
