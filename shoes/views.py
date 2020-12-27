@@ -9,14 +9,14 @@ from django.db.models import Q
 # Create your views here.
 
 
-def home(request):
+def index(request):
     shoes = Shoe.objects.all()
-    return render(request, 'shoes/home.template.html', {
+    return render(request, 'shoes/index.template.html', {
         'shoes': shoes
     })
 
 
-def index(request):
+def home(request):
     shoes = Shoe.objects.all()
 
     if request.GET:
@@ -35,7 +35,7 @@ def index(request):
     brand_name = Brand.objects.all()
     search_form = SearchForm(request.GET)
 
-    return render(request, 'shoes/index.template.html', {
+    return render(request, 'shoes/home.template.html', {
         'shoes': shoes,
         'search_form': search_form
     })
@@ -65,19 +65,18 @@ def create_shoe(request):
         form = ShoeForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(
-                request, f"{form.cleaned_data['shoeModel']} is created")
-            return redirect(reverse(index))
+            messages.success(request, f"{form.cleaned_data['shoeModel']} is created")
+        return redirect(reverse(home))
     else:
         create_shoe_form = ShoeForm()
         return render(request, 'shoes/create_shoe.template.html', {
             'form': create_shoe_form
-        })
+            })
 
 
 def edit_shoe(request, shoe_id):
     shoe_update = get_object_or_404(Shoe, pk=shoe_id)
-
+    
     if request.method == "POST":
         shoe_form = ShoeForm(request.POST, instance=shoe_update)
         if shoe_form.is_valid():
@@ -93,7 +92,7 @@ def edit_shoe(request, shoe_id):
         shoe_form = ShoeForm(instance=shoe_update)
         return render(request, 'shoes/edit_shoe.template.html', {
             'form': shoe_form
-        })
+            })
 
 
 def delete_shoe(request, shoe_id):
@@ -101,7 +100,7 @@ def delete_shoe(request, shoe_id):
     if request.method == 'POST':
         shoe_to_delete.delete()
         messages.error(request, f"Shoe is deleted")
-        return redirect(index)
+        return redirect(home)
     else:
         return render(request, 'shoes/delete_shoe.template.html', {
             'shoe': shoe_to_delete
