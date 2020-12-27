@@ -14,9 +14,9 @@ the new sole
     <form method="GET" >
         {{search_form|crispy}}
     </form>
-            <div class="col mt-5">
-            <a href="{% url 'create_shoe' %}" class="card-link">Add Shoe</a>
-        </div>
+    <div class="col mt-5">
+        <a href="{% url 'create_shoe' %}" class="card-link">Add Shoe</a>
+    </div>
 
     <div class="row">
         {% for shoe in shoes %}

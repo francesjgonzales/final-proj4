@@ -7,11 +7,13 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from shoes.models import Shoe
 from .models import Purchase
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
 
 
+@login_required
 def checkout(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
 

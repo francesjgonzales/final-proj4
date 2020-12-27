@@ -42,7 +42,7 @@ def view_cart(request):
         'cart': cart,
         'grand_total_price': round(grand_total_price, 2)
     })
-
+    
 
 def remove_from_cart(request, shoe_id):
     cart = request.session.get('shopping_cart', {})

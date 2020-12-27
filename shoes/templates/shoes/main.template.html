@@ -1,9 +1,19 @@
 {% extends 'base_consumer.template.html' %}
+{% load crispy_forms_tags %}
 {% load cloudinary %}
+{% load static %}
+
+{%block title%}
+the new sole
+{%endblock%}
 
 {% block content %}
 <div class="container" id="popular">
     <h1 class="header"></h1>
+
+     <form method="GET" >
+        {{search_form|crispy}}
+    </form>
 
     <div class="row">
         {% for shoe in shoes %}
