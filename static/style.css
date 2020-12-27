@@ -62,11 +62,19 @@
   font-size: 2rem;
 }
 
-.shoeModel {
+.model {
   font-family: "Open Sans", sans-serif;
   font-size: small;
   font-weight: 400;
 }
+
+.shoeModel {
+  font-family: "Open Sans", sans-serif;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+
 
 .price  {
   font-family: "Open Sans", sans-serif;

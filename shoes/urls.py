@@ -8,6 +8,8 @@ urlpatterns = [
     path('home', shoes.views.home, name='home_page'),
     path('main', shoes.views.main, name='consumer_page'),
     path('info/<shoe_id>', shoes.views.shoe_info, name='view_shoe_info'),
+    path('consumer_info/<shoe_id>', shoes.views.consumer_shoe_info,
+         name='consumer_shoe_info'),
     path('create_shoe', shoes.views.create_shoe, name='create_shoe'),
     path('edit_shoe/<shoe_id>', shoes.views.edit_shoe,
          name='shoe_update'),

@@ -1,4 +1,4 @@
-{% extends 'base.template.html' %}
+{% extends 'base_consumer.template.html' %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 
@@ -14,7 +14,7 @@
         </div>
         <!-- insert product info -->
         <div class="col-md-4 themed-grid-col">
-            <small class="availability">{{shoes.shoeAvail}}</small>
+            <small class="availability">{{shoe.shoeAvail}}</small>
             <br>
             <br>
             <span class="fa fa-star checked"></span>
@@ -62,7 +62,7 @@
                 {% cloudinary shoe.image width=285 height=300 crop='fill' %}
                 <div class="card-body">
                     <p class="model">{{shoe.brand_name}}</p>
-                    <p class="shoeModel">{{shoe.shoeModel}}</p>
+                    <p class="model">{{shoe.shoeModel}}</p>
                     <p class="price">${{shoe.price}}</p>
                     <p class="color">{{shoe.color}}</p>
                     <p class="size">Size: {{shoe.shoe_size}}</p>

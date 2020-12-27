@@ -62,6 +62,18 @@ def shoe_info(request, shoe_id):
 
 
 @login_required
+def consumer_shoe_info(request, shoe_id):
+    shoe = get_object_or_404(Shoe, pk=shoe_id)
+    shoes = Shoe.objects.all()
+    review_form = ReviewForm()
+    return render(request, 'shoes/consumer_shoe_info.template.html', {
+        'shoe': shoe,
+        'shoes': shoes,
+        'form': review_form
+    })
+
+
+@login_required
 def create_shoe(request):
     if request.method == "POST":
         form = ShoeForm(request.POST)
