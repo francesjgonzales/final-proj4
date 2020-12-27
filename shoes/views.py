@@ -41,6 +41,7 @@ def home(request):
     })
 
 
+@login_required
 def main(request):
     shoes = Shoe.objects.all()
     return render(request, 'shoes/main.template.html', {
@@ -48,6 +49,7 @@ def main(request):
     })
 
 
+@login_required
 def shoe_info(request, shoe_id):
     shoe = get_object_or_404(Shoe, pk=shoe_id)
     shoes = Shoe.objects.all()
@@ -105,3 +107,7 @@ def delete_shoe(request, shoe_id):
         return render(request, 'shoes/delete_shoe.template.html', {
             'shoe': shoe_to_delete
         })
+
+
+def contact(request):
+    return render(request, 'shoes/contact.template.html')

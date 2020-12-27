@@ -13,4 +13,6 @@ urlpatterns = [
          name='shoe_update'),
     path('delete_shoe/<shoe_id>', shoes.views.delete_shoe,
          name='delete_shoe'),
+    path('contact', shoes.views.contact, name='contact'),
+
 ]
