@@ -2,8 +2,14 @@
 
 An e-commerce website selling limited edition shoes. The working title for a shop name is called 'thenewsole' which sounds modern and contemporary.
 
-This project is inspired by my husband's enthusiasm for buy and sell unique, timeless branded shoes.
+This project is inspired by my husband's enthusiasm for buying and selling unique, timeless branded shoes.
  
+Here's deployed heroku app - https://fg-proj4-the-new-sole.herokuapp.com/
+
+These login details can be used for SuperUser testing 
+User: eleven
+Password: eleven123
+
 
 
 ## UX
@@ -136,6 +142,7 @@ Here are what I intend to feature in the website
 
 
 ### Features Left to Implement
+- **Write Review** - I will add in the review form in later development.
 - **Order Tracker** - I'm planning to add an order tracker which will asks for the buyer's order number and email address. 
 - **Newsletter signup** - To extend website visitors reach, I want to add this option to
 - **SEO** - optimise the web content to reach top rank in search engine. Focus on writing meaningful image alt text and meta tags.
@@ -143,7 +150,7 @@ Here are what I intend to feature in the website
 
 ## Database Design
 
-**ER** diagram of this project's data base can be access [here]((static/shoe_erd2.png))
+**ER** diagram of this project's data base can be access [here](https://github.com/francesjgonzales/final-proj4/blob/master/static/shoe_erd _final.png)
 
 
 ## Technologies Used
@@ -165,25 +172,31 @@ In this section, these are the tools, languages, frameworks, and libraries I use
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+There are two tests made based on **SuperUser** [click here for more details](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-SuperUser.pdf) and **Consumer** [click here for more details](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-Consumer.pdf)
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
+
+I used Gitpod as my main source of working on this project using a master branch. 
+
+1. Created my github repository then worked on Gitpod as my main workspace while using a master branch. 
+2. Used Django for rapid development. 
+4. Used Cloudinary to upload images. 
+    - For Python configuration settings, a dot.env file is installed and loaded in Django. This file is used to store the publishable, secret and webhook keys. 
+    - 
+3. Used Stripes 
+
+Installed the following for this project. 
+```
+pip3 install django
+```
+```
+pip3 install cloudinary
+```
+```
+pip3 install python-dotenv
+```
+
 
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 
@@ -202,7 +215,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 - [Django MultiSelectField](https://pypi.org/project/django-multiselectfield/) 
 - cart icon svg code copied from [bootstrap](https://icons.getbootstrap.com/icons/basket2/)
 - The code for price cart was copied from [Yi Sheng Lee's project](https://github.com/YiShengLee/Golden-Bee-Shop/blob/master/Cart/templates/view_cart.template.html)
-- Stripes and checkout code are copied from Paul Chor's [repository](https://github.com/kunxin-chor/tgc8-django-bookreviews/tree/checkpoint-ecommerce-done/checkout) 
+- Cloudinary, Stripes and checkout code are copied from Paul Chor's [repository](https://github.com/kunxin-chor/tgc8-django-bookreviews/tree/checkpoint-ecommerce-done/checkout) 
 
 
 ### Media
@@ -210,4 +223,4 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this project from my husband. 
