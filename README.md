@@ -182,9 +182,11 @@ I used Gitpod as my main source of working on this project using a master branch
 1. Created my github repository then worked on Gitpod as my main workspace while using a master branch. 
 2. Used Django for rapid development. 
 4. Used Cloudinary to upload images. 
-    - For Python configuration settings, a dot.env file is installed and loaded in Django. This file is used to store the publishable, secret and webhook keys. 
-    - 
+    - For Python configuration settings, a dotenv file is installed and imported in Django environment. A dotenv is used to store the cloudinary's Cloud name, API key and API secret keys. 
+    - Dotenv is added to .gitignore file. 
+    - For Cloudinary configuration, added cloudinary's os.environ in settings.py file. Next, registered Cloudinary by adding it in INSTALLED APPS.
 3. Used Stripes 
+    - A dotenv is used to store the publishable, secret and webhook keys. 
 
 Installed the following for this project. 
 ```
