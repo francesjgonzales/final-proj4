@@ -1,9 +1,10 @@
 # thenewsole
+<img src="static/newsoleimage.jpg" style="margin:0">
 
 An e-commerce website selling limited edition shoes. The working title for a shop name is called 'thenewsole' which sounds modern and contemporary.
 
 This project is inspired by my husband's enthusiasm for buying and selling unique, timeless branded shoes.
- 
+
 Here's deployed heroku app - https://fg-proj4-the-new-sole.herokuapp.com/
 
 These login details can be used for SuperUser testing 
@@ -180,34 +181,79 @@ There are two tests made based on **SuperUser** [click here for more details](ht
 I used Gitpod as my main source of working on this project using a master branch. 
 
 1. Created my github repository then worked on Gitpod as my main workspace while using a master branch. 
-2. Used Django for rapid development. 
-4. Used Cloudinary to upload images. 
-    - For Python configuration settings, a dotenv file is installed and imported in Django environment. A dotenv is used to store the cloudinary's Cloud name, API key and API secret keys. 
-    - Dotenv is added to .gitignore file. 
-    - For Cloudinary configuration, added cloudinary's os.environ in settings.py file. Next, registered Cloudinary by adding it in INSTALLED APPS.
-3. Used Stripes 
-    - A dotenv is used to store the publishable, secret and webhook keys. 
 
-Installed the following for this project. 
+2. Used Django for rapid development. 
 ```
 pip3 install django
 ```
+
+3. During the process, this code is used for sanity check - HttpResponse and to make sure that all are up and running I used 8080 port to view my browser.
+
+4. When adding new models or installing a user authentication, these codes are used to create tables and columns inside Django's database. This also applies when a model is modified. 
+```
+python3 manage.py makemigrations
+```
+```
+python3 manage.py migrate
+```
+
+5. Used Cloudinary to upload images. 
 ```
 pip3 install cloudinary
 ```
 ```
 pip3 install python-dotenv
 ```
+    - For Python configuration settings, a dotenv file is installed and imported in Django environment. A dotenv is used to store the cloudinary's Cloud name, API key and API secret keys. 
+    - Dotenv is added to .gitignore file. 
+    - For Cloudinary configuration, added cloudinary's os.environ in settings.py file. Next, registered Cloudinary by adding it in INSTALLED APPS.
 
+6. Set up a User Authentication
+```
+pip3 install django-allauth
+```
+    - Added the Authentication backends in settings.py.
+    - Defined a SITE_ID which will Allauth will need to identify.
+    - Authentication Method, Email required, email verification, sign up email, username, login URL and login REDIRECT URL are added in after SITE_ID. 
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+7. Flash Messages 
+    - Enabled messages in Django to activate flash messages. This is found in settings.py and added the MESSAGE_STORAGE code. 
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+8. Crispy Forms
+    - For better form format, this is downloaded using css classes from Bootstrap. 
+```
+pip3 install django-crispy-forms
+```
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+9. Used Stripes as online payment 
+    - A dotenv is used to store the publishable, secret and webhook keys. 
+    - A CSRF decorator is imported to provide protection against Cross
+    
+10. Deploying in Heroku
+    - The following dependencies are installed 
+```
+pip3 install gunicorn 
+pip3 install psycopg2 (this is used to install postgres)
+pip3 install Pillow (this is installed for image processing)
+pip3 install whitenoise 
+pip3 install dj_database_url
+```
+    - Login to heroku 
+    ```
+    heroku login -i
+    ```
+    - Migrate all dotenv secret keys in Heroku website
+    - Procfile is created 
+    - In settings.py, under ALLOWED_HOST, the heroku link is added. 
+    - To let Heroku know what packages are installed, a requirements.txt is generated. 
+    ```
+    pip3 freeze --local > requirements.txt
+    ```
+    - Set up Database from sqlite to postgres. Commented out the existing sql and migrated database to postgres.
+    - Updated Webhook's API secret key to ensure Stripes work in heroku environment.
+
+11. Set up email via GMAIL to ensure Allauth email validation works. Added HOST_PASS and USER and TEST_EMAIL into dotenv. 
+
 
 
 ## Credits
