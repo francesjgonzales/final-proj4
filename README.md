@@ -8,6 +8,7 @@ This project is inspired by my husband's enthusiasm for buying and selling uniqu
 Here's deployed heroku app - https://fg-proj4-the-new-sole.herokuapp.com/
 
 These login details can be used for SuperUser testing 
+
 User: eleven
 Password: eleven123
 
@@ -133,13 +134,29 @@ and [mobile wireframe](https://www.figma.com/proto/UOeEbZ3kND6oXprh5DoQfc/theNew
 Here are what I intend to feature in the website
  
 ### Existing Features
-- **Search bar** - this allows shoe enthusiast or shoe reseller users to check on shoe model's availability or shoe sizes. It will lead to a display result page. 
-- **Add to cart** - this allows shoe enthusiast or shoe reseller to add products to a cart and checkout. 
-- **Shoe Specification** - this allows shoe enthusiast or shoe reseller to check out the product feature and size availability.
-- **Main page** - this allows she enthusiast or shoe reseller to check the popular, and new release shoes. Prices and model names are shown together with the product images. 
-- **Ratings & Review** - this allows shoe enthusiast and reseller to have a more detailed research about the product and will help them create a decision in adding it to cart.
-    - **Write your review** - This page is for shoe enthusiast / reseller to answer a short form about the product. There's a total of 6 inputs to fill up and answer. The first 2 questions are  as 'overall rating' and 'recommend a product' which have optional answers and the remaining 4 questions asks about a short one sentence about their opinion on the product, a detailed review and to provide a nickname and email. 
-    - **Ratings** - There's an overall rating of up to 5 stars available for shoe enthusiast and resellers to rate a product. 
+- **Admin page** - this is the first page that shows up when deployed link is clicked. 
+    - **Home** - this allows superuser to navigate to Admin page when they are in different page.
+    - **Add Shoe** - this allows superuser to add a product in a faster and easier access. 
+    - **Shop** - this allows superuser to check the product page when there's an additional product or when a product is edited or deleted. 
+    - **Test Site** - this allows superuser to view the page in a consumers' point of view. This shows the **Shop** page but without the Create, Edit and Delete buttons of the product. The **Test Site** button is also hidden. 
+    - **Login / Logout** - this is a compulsory for superuser to login in order to access the Admin page. 
+
+
+- **Consumer page** - when **Test Site** is clicked, it leads to the consumer page. Here are a list of what consumer can do to interact with the e-commerce page. 
+    - **Main page** - this allows shoe enthusiast or shoe reseller to check the popular, and new release shoes. Prices and model names are shown together with the product images. 
+    - **Search bar** - this allows shoe enthusiast or shoe reseller users to check on shoe model's availability or shoe sizes. It will lead to a display result page. Shoe sizes and tags are not in function yet and to be added in later development. 
+    - **Shoe Specification** - this allows shoe enthusiast or shoe reseller to view the product feature and size availability. Also to add the product to cart.
+        - **You might also like** - when consumer scrolls down this page, this section is shown. The idea is to filter the products based on selected shoes. This will be done in later development. The idea now is to show this section in the page is available. 
+         - **Ratings & Review** - this allows shoe enthusiast and reseller to have a more detailed research about the product and will help them create a decision in adding it to cart. (Function to be added in later development)
+         - **Write your review** - This page is for shoe enthusiast / reseller to answer a short form about the product. A login is required to access this feature. (Function to be added in later development)
+            **There's a total of 6 inputs to fill up and answer.**
+                1. **Star Ratings** - There's an overall rating of up to 5 stars available for shoe enthusiast and resellers to rate a product. (Function to be added in later development)
+                2. **Opinion** - Consumer to write a one sentence opinion about the product. (Layout to be improved and function to be added in later development)
+                3. **Details** - Consumer to write a detailed review about the shoes. (Layout to be improved and function to be added in later development)
+                4. **Recommend** - This is answerable by yes or no by consumer. (Function to be added in later development)
+            
+        - **Add to cart** - this allows shoe enthusiast or shoe reseller to add products to a cart and checkout. 
+   
 
 
 ### Features Left to Implement
@@ -148,10 +165,14 @@ Here are what I intend to feature in the website
 - **Newsletter signup** - To extend website visitors reach, I want to add this option to
 - **SEO** - optimise the web content to reach top rank in search engine. Focus on writing meaningful image alt text and meta tags.
 - **Chatbot** - To respond to order update enquiries.
+- **Search engine** - to add search by sizes and tags. 
+- **Search Submit button** - to be added in later development. 
+- **UI/UX Design in General** - design in all pages such as Admin and Consumer pages, product information, cart, user authentication, and checkout pages to be improved in later development. 
+
 
 ## Database Design
 
-**ER** diagram of this project's data base can be access [here](https://github.com/francesjgonzales/final-proj4/blob/master/static/shoe_erd _final.png)
+**ER** diagram of this project's data base can be access [here](https://github.com/francesjgonzales/final-proj4/blob/master/static/shoe_erd_final.png)
 
 
 ## Technologies Used
@@ -169,11 +190,15 @@ In this section, these are the tools, languages, frameworks, and libraries I use
     - For designing wireframes 
 - [Cloudinary](https://cloudinary.com/) 
     - For uploading images to cloud for storage.
+- [Stripes](https://stripe.com/en-sg)
+    - Online payment processing for e-commerce website
+- [Illustrator](https://www.adobe.com/sea/products/illustrator.html)
+    - For resizing images for consistent card sizes. 
 
 
 ## Testing
 
-There are two tests made based on **SuperUser** [click here for more details](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-SuperUser.pdf) and **Consumer** [click here for more details](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-Consumer.pdf)
+There are two tests made based on [**SuperUser**](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-SuperUser.pdf) and [**Consumer**](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-Consumer.pdf)
 
 
 ## Deployment
@@ -260,15 +285,14 @@ pip3 install dj_database_url
 
 ### Content
 - The code used for cloudinary was copied from Paul's Django notes 
-- [Django MultiSelectField](https://pypi.org/project/django-multiselectfield/) 
-- cart icon svg code copied from [bootstrap](https://icons.getbootstrap.com/icons/basket2/)
+- Used [Django MultiSelectField](https://pypi.org/project/django-multiselectfield/) as alternative option. To be used in later development
+- Cart icon svg code copied from [bootstrap](https://icons.getbootstrap.com/icons/basket2/)
 - The code for price cart was copied from [Yi Sheng Lee's project](https://github.com/YiShengLee/Golden-Bee-Shop/blob/master/Cart/templates/view_cart.template.html)
 - Cloudinary, Stripes and checkout code are copied from Paul Chor's [repository](https://github.com/kunxin-chor/tgc8-django-bookreviews/tree/checkpoint-ecommerce-done/checkout) 
 
-
 ### Media
-- The photos used in this site were obtained from nike, adidas and copgarden websites for the purpose of this project only.
+- The product photos used in this site were obtained from nike, adidas and copgarden websites for the purpose of this project only.
 
 ### Acknowledgements
 
-- I received inspiration for this project from my husband. 
+- I received inspiration for this project from my husband and to my supportive classmates of Batch 8! 
