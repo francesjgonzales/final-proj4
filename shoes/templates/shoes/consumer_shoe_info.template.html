@@ -36,7 +36,7 @@
             <p class="model">Tags: {{t.shoeModel}}</p>
             {% endfor %}
 
-            <a class="btn" href="#" role="button">Add to cart &raquo;</a>
+            <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
 
         </div>
         <!-- end product info -->
