@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
 
-    <title>{%block title%}{%endblock%}</title>
+    <title>{%block title%}The New Sole{%endblock%}</title>
 </head>
 
 <body>
@@ -48,14 +48,14 @@
                         <p>{{request.user}}</p>
                         {% else %}
                         <p><a href="/accounts/signup">Sign up</a></p>
-                        {%endif%}</a>
+                        {%endif%}
+                    </a>
                 </li>
-
                 <li class="nav-item active">
                     <a class="nav-link" href="/accounts/logout">Log out</a>
                 </li>
                 <!-- LOGIN END -->
-                </li>
+
                 <li class="nav-item mt-1">
                     <button type="button" class="btn-cart">
                         <svg height="1.4em" viewbox="0 0 16 16" class="bi bi-basket2" fill="currentColor"
