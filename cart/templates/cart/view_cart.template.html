@@ -42,7 +42,7 @@ the new sole
     </div>
 
     <div class="row">
-        <div class="col-sm" id="summary-cart">
+        <div class="col-md" id="summary-cart">
             <h5 class="header-cart">Summary</h5>
             <table style="width:100%">
                 <tr>
@@ -56,10 +56,8 @@ the new sole
                     <td><small style="font-weight:700">TOTAL</small></td>
                     <td><span class="input-group-text">${{grand_total_price|floatformat:2}}</span></td>
                 </tr>
-                <tr>
-                    <td>
-                        <a class="btn" href="{% url 'checkout' %}" role="button">Checkout &raquo;</a></td>
-                </tr>
+                <tr><td><a class="btn" href="{% url 'checkout' %}" role="button">Checkout &raquo;</a></td>
+                <td></td></tr>
 
             </table>
 
