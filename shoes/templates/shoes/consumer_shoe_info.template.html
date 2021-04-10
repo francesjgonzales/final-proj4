@@ -9,11 +9,11 @@
 
         <div class="col-md-8 themed-grid-col">
             <div class="pb-3">
-                {% cloudinary shoe.image width=650 height=500 crop='fill' %}
+                {% cloudinary shoe.image alt="shoe" width=650 height=500 crop='fill' %}
             </div>
         </div>
         <!-- insert product info -->
-        <div class="col-md-4 themed-grid-col">
+        <div class="col-md-3 themed-grid-col">
             <small class="availability">{{shoe.shoeAvail}}</small>
             <br>
             <br>
@@ -27,6 +27,7 @@
             <p class="price">${{shoe.price}}</p>
             <br>
             <p class="mb-1">Select size</p>
+
             <div class="row mb-2" id="tableSize">
                 <div class="col-3 themed-grid-col">
                     <a class="btn" href="#" role="button" id="eachSize">{{shoe.shoe_size}}</a>
@@ -35,14 +36,10 @@
             {% for t in shoe.tags.all %}
             <p class="model">Tags: {{t.shoeModel}}</p>
             {% endfor %}
-
+            
             <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
 
-        </div>
         <!-- end product info -->
-
-
-
     </div>
 </div>
 <!-- end product specs -->
@@ -58,8 +55,7 @@
         {% for shoe in shoes %}
         <div class="col-lg-4 mt-5">
             <div class="card" style="width: 18rem">
-
-                {% cloudinary shoe.image width=285 height=300 crop='fill' %}
+                {% cloudinary shoe.image alt="shoe" width=285 height=300 crop='fill' %}
                 <div class="card-body">
                     <p class="model">{{shoe.brand_name}}</p>
                     <p class="model">{{shoe.shoeModel}}</p>
@@ -70,9 +66,7 @@
                     <small class="releaseDate">{{shoe.releaseDate}}</small>
                     <br />
                     <br />
-                    <p>
-                        <a href="{% url 'view_shoe_info' shoe_id=shoe.id %}">See more</a>
-                    </p>
+                    <p><a href="{% url 'view_shoe_info' shoe_id=shoe.id %}">See more</a></p>
                 </div>
             </div>
         </div>
@@ -112,12 +106,12 @@
                 <span class="fa fa-star"></span>
             </div>
 
-
             <h5 class="text-uppercase">worth the purchase!</h5>
             <p>The quality is good and i love the design!</p>
             <small class="text-muted">USER321</small>
         </div>
     </div>
+
     <hr style="width:100%">
     <div class="review">
         <div class="media-body">
@@ -131,9 +125,9 @@
             <small class="text-muted">SHOE FANATIC</small>
         </div>
     </div>
-    <div class="review">
-            <h1 class="header mt-5">Write a review</h1>
 
+    <div class="review">
+        <h1 class="header mt-5">Write a review</h1>
         <form method="POST" action="{% url 'write_review_route' shoe_id=shoe.id %}">
             {% csrf_token %}
             {{ form|crispy}}
@@ -145,6 +139,6 @@
     <!-- <p class="mt-5">
         <a class="btn" href="#" button>Write a review</a>
     </p> -->
-</div>
+
 <!-- end rating and review -->
 {% endblock %}

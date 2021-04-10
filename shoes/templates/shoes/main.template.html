@@ -9,7 +9,6 @@ the new sole
 
 {% block content %}
 <div class="container" id="popular">
-    <h1 class="header"></h1>
 
      <form method="GET" >
         {{search_form|crispy}}
@@ -20,7 +19,7 @@ the new sole
         <div class="col-lg-4 mt-5">
             <div class="card" style="width: 18rem">
 
-                {% cloudinary shoe.image width=285 height=300 crop='fill' %}
+                {% cloudinary shoe.image alt="shoe" width=285 height=300 crop='fill' %}
                 <div class="card-body">
                     <p class="model">{{shoe.brand_name}}</p>
                     <p class="shoeModel">{{shoe.shoeModel}}</p>
