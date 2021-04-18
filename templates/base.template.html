@@ -24,7 +24,7 @@
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light" style="height: 7vh">
+        <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{% url 'main_shoe'%}">thenewsole</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,11 +52,11 @@
                         {%endif%}  
                               
                     </a>
-                     <div class="dropdown-menu" aria-labelledby="false">
+                     <div class="dropdown-menu" aria-labelledby="true">
                             <button type="button" class="btn" style="border:none">
                             <i class="bi bi-basket2"></i>
                             <span class="badge bg-secondary"> 
-                            <a href="{% url 'view_cart' %}">{{number_of_items}}</a></span>   
+                            <a class="dropdown-item" href="{% url 'view_cart' %}">{{number_of_items}}</a></span>   
                             </button>
 
                             <a class="dropdown-item" href="/accounts/logout">Log out</a>

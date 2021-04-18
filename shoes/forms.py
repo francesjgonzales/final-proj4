@@ -12,6 +12,8 @@ class ShoeForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     shoeModel = forms.CharField(
-        required=False, max_length=255, label='Search')
+        required=False, max_length=255, label='Shoe Model',
+        widget=forms.TextInput(attrs={'placeholder': 'Search'})
+    )
     brand_name = forms.ModelChoiceField(
         queryset=Brand.objects.all(), required=False)

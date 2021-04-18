@@ -6,14 +6,6 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 375px) {
-  *, .card-title, .card-text, .card-link, .header, .nav-link, .welcome {
-    font-size: small;
-    box-sizing: border-box;
-    align-items: top;
-  }
-}
-
 #main-text {
   margin: auto;
   padding: auto;
@@ -74,7 +66,7 @@
   font-weight: 700;
 }
 
-.price  {
+.price, .heroPrice  {
   font-family: "Open Sans", sans-serif;
   font-size: xx-large;
   font-weight: 700;
@@ -209,11 +201,31 @@ th, td {
   padding: 15px;
 }
 
-#heroTxt {
+.heroTxt {
   color: aliceblue;
   position: absolute;
   left: 20vw;
-  top: 30vh;
+  top: 25vh;
+}
+
+@media (max-width: 767.98px) {
+    .heroTxt{
+        position: absolute;
+        left: 10vw;
+        top: 11vh;
+    }
+}
+
+@media (max-width: 767.98px) {
+  *, .card-title {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .card-text, .card-link, .heroMain, .smaller, .shop-now, .heroPrice, .heroSub {
+    font-size: 15px;
+  }
 }
 
 .shop-now {
@@ -226,10 +238,20 @@ th, td {
   text-decoration: none;
 }
 
-@media (max-width: 375px) {
-  #heroTxt {
-    font-size: small;
-    box-sizing: border-box;
-    align-items: top;
-  }
+#search-submit {
+  position: absolute;
+  bottom: 1.6vh;
+}
+
+@media (max-width: 767.98px) {
+#search-submit {
+  position: inherit;
+  margin-left: 1%;
+  margin-top: 5%;
+}
+}
+
+
+.container-search {
+    margin: 5%;
 }
