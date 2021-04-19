@@ -29,6 +29,11 @@
   border: dotted 1px;
 }
 
+.btn-cart {
+  border-radius: 0px;
+  border: none;
+}
+
 .btn:hover {
   border-radius: 0px;
   background-color: black;

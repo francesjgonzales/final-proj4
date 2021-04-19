@@ -53,13 +53,11 @@
                               
                     </a>
                      <div class="dropdown-menu" aria-labelledby="true">
-                            <button type="button" class="btn" style="border:none">
-                            <i class="bi bi-basket2"></i>
-                            <span class="badge bg-secondary"> 
-                            <a class="dropdown-item" href="{% url 'view_cart' %}">{{number_of_items}}</a></span>   
-                            </button>
-
-                            <a class="dropdown-item" href="/accounts/logout">Log out</a>
+                        <h6 class="btn-cart"> <a class="dropdown-item" href="{% url 'view_cart' %}"  role="button" data-bs-toggle="button">
+                        <i class="bi bi-basket2"></i>
+                        <span class="badge">{{number_of_items}}</span></h6></a>
+                        
+                        <a class="dropdown-item" href="/accounts/logout">Log out</a>
                     </div>
                        
 
