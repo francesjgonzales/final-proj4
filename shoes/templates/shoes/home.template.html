@@ -1,4 +1,4 @@
-{% extends 'base.template.html' %}
+{% extends 'base_consumer.template.html' %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 {% load static %}
@@ -8,6 +8,17 @@ the new sole
 {%endblock%}
 
 {% block content %}
+
+ <div id="heroImg">
+    <img src="{% static 'hero-img.jpg' %}" class="d-block w-100" alt="nike-hero-img">
+        <div class="heroTxt">
+            <p class="heroSub">NEW</p>
+            <h4 class="heroMain">Nike Air Max 95 EOI</h4>
+            <p class="heroPrice">$249</p>
+            <a href="{% url 'home_page' %}"  class="shop-now">Shop now</a>
+        </div>
+    </div>
+    
 <div class="container" id="popular">
         {% comment %} <form method="GET" >
             {{search_form|crispy}}

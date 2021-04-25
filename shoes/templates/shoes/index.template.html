@@ -10,7 +10,6 @@
             <p class="heroSub">NEW</p>
             <h4 class="heroMain">Nike Air Max 95 EOI</h4>
             <p class="heroPrice">$249</p>
-            <a href="{% url 'home_page' %}"  class="shop-now">Shop now</a>
         </div>
     </div>
 
@@ -31,7 +30,6 @@
         <div class="card">
             <h2 class="card-title">Collab x brands x artists</h2>
             <p class="card-text">See the latest collabs from Ronnie Fieg's Kith x New Balance to Travis Scott's x Nike/Jordan.</p>
-            <a href="{% url 'home_page' %}" class="card-link">Check it out</a>
         </div>
     </div>
 </div>
@@ -42,10 +40,12 @@
     <div class="card">
         <h2 class="card-title">Upcoming</h2>
         <p class="card-text">Hear what's new. We have the list and details.</p>
-        <a href="{% url 'home_page' %}"  class="card-link">Check it out</a>
+
     </div>
 </div>
     <div class="col"><img src="{% static 'kobe_proto.jpg'%}" class="img-fluid" alt="adidas-yeezy"></div>
+
+
     <div class="col"><img src="{% static 'nike_space_hippie.jpeg' %}" class="img-fluid" alt="adidas-yeezy"></div>
   </div>
 
@@ -60,7 +60,7 @@
         <div class="card">
             <h2 class="card-title">In Stock </h2>
             <p class="card-text">From Air Jordan to Travis Scott collab. We have a range of brands available.</p>
-            <a href="{% url 'home_page' %}"  class="card-link">Check it out</a>
+            {% comment %} <a href="{% url 'home_page' %}"  class="card-link">Check it out</a> {% endcomment %}
         </div>
     </div>
   </div>
@@ -70,6 +70,5 @@
     
     
   </div>
-
 
 {% endblock %}
