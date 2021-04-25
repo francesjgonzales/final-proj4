@@ -10,6 +10,7 @@ from django.db.models import Q
 
 
 # Admin welcome page
+@login_required
 def index(request):
     shoes = Shoe.objects.all()
     return render(request, 'shoes/index.template.html', {
@@ -103,7 +104,6 @@ def consumer_shoe_info(request, shoe_id):
 
 
 # Admin shoe form
-@login_required
 def create_shoe(request):
     if request.method == "POST":
         form = ShoeForm(request.POST)
@@ -127,8 +127,7 @@ def edit_shoe(request, shoe_id):
         shoe_form = ShoeForm(request.POST, instance=shoe_update)
         if shoe_form.is_valid():
             shoe_form.save()
-            messages.success(
-                request, f"Shoe {shoe_form.cleaned_data['shoeModel']} is edited")
+            messages.success(request, f"Shoe {shoe_form.cleaned_data['shoeModel']} is edited")
             return redirect(reverse(index))
         else:
             return render(request, 'shoes/edit_shoe.template.html', {
