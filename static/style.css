@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 .container-login {
     margin: 10%;
     top: 5%;
@@ -22,7 +21,7 @@
     padding-left: 15%;
     padding-right: 15%;
     bottom: 5%;
-}
+    }
 }
 
 #main-text {
@@ -241,13 +240,7 @@ th, td {
 }
 
 @media (max-width: 767.98px) {
-  *, .card-title {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .card-text, .card-link, .heroMain, .smaller, .shop-now, .heroPrice, .heroSub {
+  *, .card-title, .card-text, .card-link, .heroMain, .smaller, .shop-now, .heroPrice, .heroSub {
     font-size: 15px;
   }
 }
@@ -277,4 +270,24 @@ th, td {
 
 .container-search {
     margin: 5%;
+}
+
+.btn-outline-dark {
+    color: white;
+    width: 10vw;
+
+}
+
+.btn-outline-info {
+    color: black;
+    width: 10vw;
+}
+
+
+@media (max-width: 767.98px) {
+    .btn-outline-dark{
+        position: absolute;
+        left: 10vw;
+        top: 11vh;
+    }
 }
