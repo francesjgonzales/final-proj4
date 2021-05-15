@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.container-login {
+.container-login, .logout {
     margin: 10%;
     top: 5%;
     padding-left: 30%;
@@ -291,3 +291,6 @@ th, td {
         top: 11vh;
     }
 }
+
+div[content~=Sold-out] { display:none; }
+div[content~=In-stock] { display:inline; }

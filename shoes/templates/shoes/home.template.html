@@ -1,4 +1,4 @@
-{% extends 'base_consumer.template.html' %}
+{% extends 'base.template.html' %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 {% load static %}
@@ -9,15 +9,15 @@ the new sole
 
 {% block content %}
 
- <div id="heroImg">
+    {% comment %} <div id="heroImg">
     <img src="{% static 'hero-img.jpg' %}" class="d-block w-100" alt="nike-hero-img">
         <div class="heroTxt">
             <p class="heroSub">NEW</p>
             <h4 class="heroMain">Nike Air Max 95 EOI</h4>
             <p class="heroPrice">$249</p>
-            <a href="{% url 'home_page' %}"  class="shop-now">Shop now</a>
+            <a class="btn btn-outline-dark" href="{% url 'home_page'%}" role="button">Shop now</a>
         </div>
-    </div>
+    </div> {% endcomment %}
     
 <div class="container" id="popular">
         {% comment %} <form method="GET" >
@@ -37,7 +37,7 @@ the new sole
                             {{ search_form.shoeModel|as_crispy_field }}
                         </div>
                         <div class="form-group col-sm-4 mb-0">
-                            {{ search_form.brand_name|as_crispy_field }}
+                            {{ search_form.brand_name|as_crispy_field }} 
                         </div>
                         <div class="form-group col-sm-4 mb-1">
                             <button type="submit" class="btn" id="search-submit">Submit</button>
@@ -64,16 +64,22 @@ the new sole
                     <p class="price">${{shoe.price}}</p>
                     <p class="color">{{shoe.color}}</p>
                     <p class="size">Size: {{shoe.shoe_size}}</p>
-                    <small class="availability">{{shoe.shoeAvail}}</small>
+                    <small class="availability">{{shoe.shoeAvail}}</small> 
                     <small class="releaseDate">{{shoe.releaseDate}}</small>
                     <br />
                     <br />
                     <p>
                         <a class="btn mr-2" href="{% url 'consumer_shoe_info' shoe_id=shoe.id %}" role="button">See more &raquo;</a>
-                        <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
-                        
-                        <a class="btn mr-2 mt-2" href="{% url 'shoe_update' shoe_id=shoe.id %}">Edit</a>
-                        <a class="btn mr-2 mt-2" href="{% url 'delete_shoe' shoe_id=shoe.id %}">Delete</a>
+                    </p>
+                    <div>
+                        <p id="addCart">
+                            <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
+                        </p> 
+
+                    </div>
+                    <p>
+                        <a class="btn mr-2 mt-2" href="{% url 'shoe_update' shoe_id=shoe.id %}">Edit</a><a class="btn mr-2 mt-2" href="{% url 'delete_shoe' shoe_id=shoe.id %}">Delete</a>
+
                     </p>
                 </div>
             </div>
@@ -83,7 +89,27 @@ the new sole
         {% endfor %}
 
         <!-- /.row -->
+
+
     </div>
+    <hr>
+
+    <div class="row">
+    <span>Add new shoe here: <br> <a class="btn btn-outline-info" href="{% url 'create_shoe'%}" role="button"> + Add shoe</a></span>
+    </div>
+
 </div>
 
+
+{% endblock %}
+
+{%block js%}
+<script>
+let divs = document.querySelectorAll(".availability");
+Array.from(divs).forEach(function(div) {
+  if (div.textContent.indexOf("Sold-out") >= 0) {
+      document.getElementById("addCart").style.display = "none";
+  }
+});
+</script>
 {% endblock %}
