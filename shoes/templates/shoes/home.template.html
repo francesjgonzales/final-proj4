@@ -32,18 +32,20 @@ the new sole
                 <div class="col-sm">
                 </div>
                 <div class="col-sm">
-                    <div class="form-row" style="width: 30rem;">
+                    <div class="form-row" style="width: 45rem;">
                         <div class="form-group col-sm-4 mb-0">
                             {{ search_form.shoeModel|as_crispy_field }}
                         </div>
                         <div class="form-group col-sm-4 mb-0">
-                            {{ search_form.brand_name|as_crispy_field }} 
+                            {{ search_form.brand_name|as_crispy_field }}
                         </div>
                         <div class="form-group col-sm-4 mb-1">
                             <button type="submit" class="btn" id="search-submit">Submit</button>
+                        </div>       
+                        <div class="form-group col-sm-4 mb-1">
+                            <small> <a href="{% url 'home_page' %}"> Clear filter</a></small>
                         </div>
-
-                    </div>          
+                    </div>
                 </div>
                 <div class="col-sm">
 
@@ -72,10 +74,9 @@ the new sole
                         <a class="btn mr-2" href="{% url 'consumer_shoe_info' shoe_id=shoe.id %}" role="button">See more &raquo;</a>
                     </p>
                     <div>
-                        <p id="addCart">
+                        <p id="addCart" style="display:none">
                             <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
                         </p> 
-
                     </div>
                     <p>
                         <a class="btn mr-2 mt-2" href="{% url 'shoe_update' shoe_id=shoe.id %}">Edit</a><a class="btn mr-2 mt-2" href="{% url 'delete_shoe' shoe_id=shoe.id %}">Delete</a>
@@ -100,16 +101,11 @@ the new sole
 
 </div>
 
-
 {% endblock %}
 
 {%block js%}
 <script>
-let divs = document.querySelectorAll(".availability");
-Array.from(divs).forEach(function(div) {
-  if (div.textContent.indexOf("Sold-out") >= 0) {
-      document.getElementById("addCart").style.display = "none";
-  }
-});
+
+
 </script>
 {% endblock %}
