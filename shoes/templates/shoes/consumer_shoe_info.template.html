@@ -1,11 +1,12 @@
-{% extends 'base_consumer.template.html' %}
+{% extends 'base.template.html' %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 
 <!-- product specs -->
+{% block content %}
+
 <div class="container mt-5" id="productSpecs">
     <div class="row mb-3">
-        {% block content %}
 
         <div class="col-md-8 themed-grid-col">
             <div class="pb-3">
@@ -37,8 +38,15 @@
             <p class="model">Tags: {{t.shoeModel}}</p>
             {% endfor %}
             
-            <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
+            <div id="addToCart">
+                <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
+            </div>
+            <div id="noStock" style="display: none">
+                <p>New stock dropping in soon!</p>
+            </div> 
 
+
+        </div>
         <!-- end product info -->
     </div>
 </div>
@@ -141,4 +149,31 @@
     </p> -->
 
 <!-- end rating and review -->
+</div>
+
+<script>
+let hideCart;
+let showCart;
+let available = document.getElementById("addToCart");
+let soldOut = document.getElementById("noStock");
+let checkAvailability = document.getElementsByClassName('availability').textContent = "Sold-out";
+
+hideCart = () => {
+    if (checkAvailability.textContent = "Sold-out") {
+        available.style.display = "none";
+        soldOut.style.display = "block";
+    } else {
+        soldOut.style.display = "none";
+        available.style.display = "block";    
+        }
+}
+checkAvailability = hideCart();
+
+
+
+
+
+
+</script>
+
 {% endblock %}

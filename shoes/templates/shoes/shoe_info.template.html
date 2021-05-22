@@ -3,9 +3,10 @@
 {% load crispy_forms_tags %}
 
 <!-- product specs -->
+{% block content %}
+
 <div class="container mt-5" id="productSpecs">
     <div class="row mb-3">
-        {% block content %}
 
         <div class="col-md-8 themed-grid-col">
             <div class="pb-3">
@@ -14,7 +15,7 @@
         </div>
         <!-- insert product info -->
         <div class="col-md-4 themed-grid-col">
-            <small class="availability">{{shoes.shoeAvail}}</small>
+            <small class="availability" value="sold-out">{{shoes.shoeAvail}}</small>
             <br>
             <br>
             <span class="fa fa-star checked"></span>
@@ -35,8 +36,11 @@
             {% for t in shoe.tags.all %}
             <p class="model">Tags: {{t.shoeModel}}</p>
             {% endfor %}
-
-            <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
+            
+            <p id="cart-available">
+                <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
+            </p>
+            <p id="cart-sold"></p>
 
         </div>
         <!-- end product info -->
@@ -136,8 +140,8 @@
 
         <form method="POST" action="{% url 'write_review_route' shoe_id=shoe.id %}">
             {% csrf_token %}
-            {{ form|crispy}}
-            <input type="submit" />
+            {{ form|crispy }}
+            <input type="submit"/>
         </form>
     </div>
 
@@ -147,4 +151,6 @@
     </p> -->
 </div>
 <!-- end rating and review -->
+
+
 {% endblock %}
