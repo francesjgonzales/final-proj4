@@ -40,12 +40,12 @@
             {% endfor %}
             
             
-            {% if shoe.shoe > 0 %}
+            {% if shoe.shoeQty > 1 %}
             <div id="addToCart">
                 <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
             </div>
             {% else %}
-            <div id="noStock" style="display: none">
+            <div id="noStock">
                 <p>New stock dropping in soon!</p>
             </div> 
             {% endif %}
@@ -153,7 +153,7 @@
 <!-- end rating and review -->
 </div>
 
-<script>
+{% comment %} <script>
 let hideCart;
 let showCart;
 let available = document.getElementById("addToCart");
@@ -176,6 +176,6 @@ checkAvailability = hideCart();
 
 
 
-</script>
+</script> {% endcomment %}
 
 {% endblock %}
