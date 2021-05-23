@@ -26,6 +26,7 @@
             <p class="model">{{shoe.brand_name}}</p>
             <p class="shoeModel">{{shoe.shoeModel}}</p>
             <p class="price">${{shoe.price}}</p>
+            <p class="shoeQty">${{shoe.shoeQty}}</p>
             <br>
             <p class="mb-1">Select size</p>
 
@@ -38,14 +39,17 @@
             <p class="model">Tags: {{t.shoeModel}}</p>
             {% endfor %}
             
+            
+            {% if shoe.shoe > 0 %}
             <div id="addToCart">
                 <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
             </div>
+            {% else %}
             <div id="noStock" style="display: none">
                 <p>New stock dropping in soon!</p>
             </div> 
-
-
+            {% endif %}
+            
         </div>
         <!-- end product info -->
     </div>
@@ -53,7 +57,6 @@
 <!-- end product specs -->
 
 <hr class="mt-5" style="width:100%">
-
 
 <!-- you might also like -->
 <div class="container mt-5">
@@ -87,10 +90,9 @@
 <!-- end you might also like -->
 <hr class="mt-5" style="width:100%">
 
-
 <!-- rating and review -->
 <div class="container">
-    <h1 class="header mt-5">Ratings & Reviews</h1>
+    <h1 class="header mt-5">Ratings &amp; Reviews</h1>
     <div class="review">
         <div class="media-body">
             <span class="fa fa-star checked"></span>

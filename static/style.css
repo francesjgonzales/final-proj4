@@ -14,6 +14,14 @@
     bottom: 5%;
 }
 
+.containerForm {
+    margin: 5%;
+    top: 3%;
+    padding-left: 15%;
+    padding-right: 15%;
+    bottom: 3%;
+}
+
 @media (max-width: 767.98px) {
 .container-login {
     margin: 10%;
@@ -268,10 +276,6 @@ th, td {
 }
 }
 
-.container-search {
-    margin: 5%;
-}
-
 .btn-outline-dark {
     color: white;
     width: 10vw;
@@ -294,3 +298,14 @@ th, td {
 
 div[content~=Sold-out] { display:none; }
 div[content~=In-stock] { display:inline; }
+
+.carousel-caption {
+    text-align: left;
+    margin-bottom: 5em;
+}
+
+@media (max-width: 767.98px) {
+    .carousel-caption {
+        display: none;
+    }
+}
