@@ -1,6 +1,8 @@
-{% extends 'base.template.html' %}
+{% extends 'base_consumer.template.html' %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
+{% load static %}
+
 
 <!-- product specs -->
 {% block content %}
@@ -26,7 +28,7 @@
             <p class="model">{{shoe.brand_name}}</p>
             <p class="shoeModel">{{shoe.shoeModel}}</p>
             <p class="price">${{shoe.price}}</p>
-            <p class="shoeQty">${{shoe.shoeQty}}</p>
+            {% comment %} <p class="shoeQty">${{shoe.shoeQty}}</p> {% endcomment %}
             <br>
             <p class="mb-1">Select size</p>
 
@@ -40,7 +42,7 @@
             {% endfor %}
             
             
-            {% if shoe.shoeQty > 1 %}
+            {% if shoe.shoeQty > 0 %}
             <div id="addToCart">
                 <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
             </div>
@@ -77,12 +79,18 @@
                     <small class="releaseDate">{{shoe.releaseDate}}</small>
                     <br />
                     <br />
-                    <p><a href="{% url 'view_shoe_info' shoe_id=shoe.id %}">See more</a></p>
+                    
+                <a class="btn" href="{% url 'consumer_shoe_info' shoe_id=shoe.id %}" role="button">See more</a>
+
                 </div>
             </div>
         </div>
+
+
         <!-- /.col-lg-4 -->
         {% endfor %}
+        
+
         <!-- /.row -->
     </div>
     <!-- /.row -->
@@ -152,30 +160,5 @@
 
 <!-- end rating and review -->
 </div>
-
-{% comment %} <script>
-let hideCart;
-let showCart;
-let available = document.getElementById("addToCart");
-let soldOut = document.getElementById("noStock");
-let checkAvailability = document.getElementsByClassName('availability').textContent = "Sold-out";
-
-hideCart = () => {
-    if (checkAvailability.textContent = "Sold-out") {
-        available.style.display = "none";
-        soldOut.style.display = "block";
-    } else {
-        soldOut.style.display = "none";
-        available.style.display = "block";    
-        }
-}
-checkAvailability = hideCart();
-
-
-
-
-
-
-</script> {% endcomment %}
 
 {% endblock %}

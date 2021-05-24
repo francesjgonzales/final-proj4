@@ -4,7 +4,8 @@
 
 {% block content %}
 
-    <div id="heroImg">
+
+<div id="heroImg">
     <img src="{% static 'hero-img.jpg' %}" class="d-block w-100" alt="nike-hero-img">
         <div class="heroTxt">
             <p class="heroSub">NEW</p>
@@ -12,7 +13,7 @@
             <p class="heroPrice">$249</p>
             <a class="btn btn-outline-dark" href="{% url 'home_page'%}" role="button">Shop now</a>
         </div>
-    </div>
+</div>
 
 <div class="container-sm">
     <div class="row" id="main-text">
@@ -25,8 +26,8 @@
 
 <div class="container-sm mt-2" style="border: 1px">
   <div class="row row-cols-3">
-    <div class="col"><a href="{% url 'main_shoe'%}"><img src="{% static 'adidas-Yeezy-Clay-Brown.jpg' %}" class="img-fluid" alt="nike-stone"></a></div>
-    <div class="col"><img src="{% static 'supreme-nike.jpg' %}" class="img-fluid" alt="nike-stone"></div>
+    <div class="col"><a href="{% url 'home_page'%}"><img src="{% static 'adidas-Yeezy-Clay-Brown.jpg' %}" class="img-fluid" alt="nike-stone"></a></div>
+    <div class="col"><a href="{% url 'home_page'%}"><img src="{% static 'supreme-nike.jpg' %}" class="img-fluid" alt="nike-stone"></a></div>
     <div class="col">
         <div class="card">
             <h2 class="card-title">Collab x brands x artists</h2>

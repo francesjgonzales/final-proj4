@@ -4,14 +4,15 @@
 
 {% block content %}
 
-<div class="container">
-    <h1>Delete {{shoe.shoeModel}}</h1>
+<div class="containerForm">
+    <h1 class="header">Delete <em>{{shoe.shoeModel}}</em></h1>
     <p>Are you sure you want to delete?</p>
     <form method="POST">
         {% csrf_token %}
         {{form|crispy}}
-        <input type="Submit" value="Yes" />
-        <a href="{% url 'main_shoe' %}">No</a>
+        <button type="Submit" class="btn" value="Yes">Yes</button>
+        {% comment %} <input type="Submit" value="Yes" /> {% endcomment %}
+        <a href="{% url 'main_shoe' %}" disabled class="text-muted">No</a>
     </form>
 </div>
 {% endblock %}

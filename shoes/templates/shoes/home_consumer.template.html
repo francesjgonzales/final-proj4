@@ -1,13 +1,27 @@
-{% extends 'base.template.html' %}
+{% extends 'base_consumer.template.html' %}
 {% load cloudinary %}
 {% load static %}
 
+{%block title%}
+the new sole
+{%endblock%}
+
 {% block content %}
+
+<div id="heroImg">
+    <img src="{% static 'hero-img.jpg' %}" class="d-block w-100" alt="nike-hero-img">
+        <div class="heroTxt">
+            <p class="heroSub">NEW</p>
+            <h4 class="heroMain">Nike Air Max 95 EOI</h4>
+            <p class="heroPrice">$249</p>
+            <a class="btn btn-outline-dark" href="{% url 'home_page'%}" role="button">Shop now</a>
+        </div>
+</div>
 
 <div class="container-sm">
     <div class="row" id="main-text">
         <div class="col" style="text-align: center">
-            <h1 class="header">the new sole</h1>
+            <!-- <h1 class="header">the new sole</h1> -->
 
         </div>
     </div>
@@ -21,7 +35,7 @@
         <div class="card">
             <h2 class="card-title">Collab x brands x artists</h2>
             <p class="card-text">See the latest collabs from Ronnie Fieg's Kith x New Balance to Travis Scott's x Nike/Jordan.</p>
-            <a href="{% url 'consumer_page' %}" class="card-link">Check it out</a>
+            <a class="btn btn-outline-info" href="{% url 'consumer_page'%}" role="button">Check it out</a>   
         </div>
     </div>
 </div>
