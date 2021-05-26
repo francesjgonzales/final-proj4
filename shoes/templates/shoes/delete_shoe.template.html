@@ -8,11 +8,21 @@
     <h1 class="header">Delete <em>{{shoe.shoeModel}}</em></h1>
     <p>Are you sure you want to delete?</p>
     <form method="POST">
+        
         {% csrf_token %}
         {{form|crispy}}
         <button type="Submit" class="btn" value="Yes">Yes</button>
         {% comment %} <input type="Submit" value="Yes" /> {% endcomment %}
         <a href="{% url 'main_shoe' %}" disabled class="text-muted">No</a>
+
     </form>
+
+ {% if messages %}  
+        <div class="alert alert-success">    
+              {% for message in messages %} <p>{{ message }}</p> {% endfor %}
+            
+        </div>
+       {% endif %}
+
 </div>
 {% endblock %}

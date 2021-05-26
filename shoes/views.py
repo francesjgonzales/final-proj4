@@ -127,7 +127,8 @@ def edit_shoe(request, shoe_id):
         shoe_form = ShoeForm(request.POST, instance=shoe_update)
         if shoe_form.is_valid():
             shoe_form.save()
-            messages.success(request, f"Shoe {shoe_form.cleaned_data['shoeModel']} is edited")
+            messages.success(
+                request, f"Shoe {shoe_form.cleaned_data['shoeModel']} is edited")
             return redirect(reverse(index))
         else:
             return render(request, 'shoes/edit_shoe.template.html', {
@@ -145,7 +146,8 @@ def delete_shoe(request, shoe_id):
     shoe_to_delete = get_object_or_404(Shoe, pk=shoe_id)
     if request.method == 'POST':
         shoe_to_delete.delete()
-        messages.error(request, f"Shoe is deleted")
+        messages.error(
+            request, f"Shoe is deleted")
         return redirect(home)
     else:
         return render(request, 'shoes/delete_shoe.template.html', {
