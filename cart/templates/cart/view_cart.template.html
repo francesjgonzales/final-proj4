@@ -8,68 +8,58 @@ the new sole
 {% block content %}
 
 
-<div class="container mt-5" id="review">
 
-
-    <div class="row">
+<div class="container px-5">
+    <h1 class="header">Shopping cart</h1>
     
-        <div class="col-12 col-md-8">
-            <h5 class="header-cart">Shopping cart</h5>
+    <p class="mt-4"><a href="{% url 'consumer_page' %}" onclick="showDiv()"><i class="bi bi-arrow-left-short"></i>Continue Shopping</a></p>
+    
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+    
+        {% for key, i in cart.items %}
 
-            <div id="shoe_items">
-            {% for key, i in cart.items %}
-
-            <div class="media">
-                <div class="mr-3">
-                    {% cloudinary i.image width=180 height=180 crop='fill' %}
-                </div>
-
-                <div class="media-body">
-                    <p class="model">{{i.shoeModel}} </p>
-                    <!-- product size & quantity -->
-                    <div class="cart-price">
-                        <small class="model mr-3">Size: {{i.shoe_size}}</small>
-                        <small class="model">Quantity: {{i.qty}}</small>
-                        <small class="input-group-text">${{i.price}}</small>
-                        <small><a href="{% url 'remove_from_cart' shoe_id=i.id%}" class="remove mt-4">Remove</a></small>
-                    </div>
-                    <!-- end product size & quantity -->
-                </div>
-            </div>
-            {% endfor %}
-            </div>
+        <div class="col">
+            {% cloudinary i.image width=300 height=180 crop='fill' %}
         </div>
+        <div class="col">
+            <p class="shoeModel">{{i.shoeModel}} </p>
+            <p class="model mr-3">Size: {{i.shoe_size}}</p>
+            <p class="model">Quantity: {{i.qty}}</p>
+            <p class="input-group-text mt-2">${{i.price}}</p>
+            <p class="mt-4"><a href="{% url 'remove_from_cart' shoe_id=i.id%}" disabled class="text-muted" onclick="showDiv()">Remove</a></p>
 
-        {% if cart.items is empty %}
-        <div> Your cart is empty</div>
-        {%else%}
-        <div class="container" style="background-color: lightgray">
-            <div class="col-6 col-md-4 m-2 p-3">
-                <h5 class="header-cart">Summary</h5>
-                <table style="width:100%">
-                    <tr>
-                        <td><small>Subtotal</small></td>
-                        <td><span class="input-group-text">${{grand_total_price|floatformat:2}}</span></td>
+        </div>
+        <div class="col"></div>
+        <div class="col mt-5" style="background-color: lightgray"><h5 class="header-cart mt-3">Summary</h5>
+            <table style="width:100%">
+                <tr>
+                    <td><small>Subtotal</small></td>
+                    <td><span class="input-group-text">${{grand_total_price|floatformat:2}}</span></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><small>*Tax included and shipping calculated at checkout</small></td>
+                </tr>
+                <tr>
+                    <td><small style="font-weight:700">TOTAL</small></td>
+                    <td><span class="input-group-text">${{grand_total_price|floatformat:2}}</span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a class="btn" href="{% url 'checkout' %}" role="button">Checkout</a></td>
                     </tr>
-                    <tr>
-                        <td colspan="2"><small>*Tax included and shipping calculated at checkout</small></td>
-                    </tr>
-                    <tr>
-                        <td><small style="font-weight:700">TOTAL</small></td>
-                        <td><span class="input-group-text">${{grand_total_price|floatformat:2}}</span></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td colspan="2">
-                            <a class="btn" href="{% url 'checkout' %}" role="button">Checkout</a>
-                        </td>
-                    </tr>
-
-                </table>
-            </div>
+        {% endfor %}
+            </table>
+        </div>
         
-        </div>
-        {% endif %}
     </div>
+</div>
+
+<script>
+
+function showDiv() {
+   document.getElementById('welcomeDiv').style.display = "block";
+}
+
+</script>
 
 {% endblock %}

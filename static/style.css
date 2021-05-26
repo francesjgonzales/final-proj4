@@ -309,3 +309,7 @@ div[content~=In-stock] { display:inline; }
         display: none;
     }
 }
+
+aside {
+  display: block;
+}
