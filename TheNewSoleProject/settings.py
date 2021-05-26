@@ -27,9 +27,9 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = 'El6LQ>E6k`Y)t*BRK#rM_=nenHr~yZ'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["fg-proj4-the-new-sole.herokuapp.com"]
 
 
 # Application definition
