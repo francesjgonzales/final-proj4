@@ -1,4 +1,4 @@
-{% extends 'base.template.html' %}
+{% extends 'base_consumer.template.html' %}
 {% load cloudinary %}
 
 {%block title%}
@@ -12,16 +12,16 @@ the new sole
 <div class="container px-5">
     <h1 class="header">Shopping cart</h1>
     
-    <p class="mt-4"><a href="{% url 'consumer_page' %}" onclick="showDiv()"><i class="bi bi-arrow-left-short"></i>Continue Shopping</a></p>
+    <p class="mt-4"><a href="{% url 'consumer_page' %}" onclick="showDiv()"><i class="bi bi-arrow-left-short"></i>&nbsp;Continue Shopping</a></p>
     
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-3">
     
         {% for key, i in cart.items %}
 
-        <div class="col">
+        <div class="col mt-3 px-5">
             {% cloudinary i.image width=300 height=180 crop='fill' %}
         </div>
-        <div class="col">
+        <div class="col mt-3 px-5">
             <p class="shoeModel">{{i.shoeModel}} </p>
             <p class="model mr-3">Size: {{i.shoe_size}}</p>
             <p class="model">Quantity: {{i.qty}}</p>
@@ -29,8 +29,8 @@ the new sole
             <p class="mt-4"><a href="{% url 'remove_from_cart' shoe_id=i.id%}" disabled class="text-muted" onclick="showDiv()">Remove</a></p>
 
         </div>
-        <div class="col"></div>
-        <div class="col mt-5" style="background-color: lightgray"><h5 class="header-cart mt-3">Summary</h5>
+        <!-- <div class="col"></div> -->
+        <div class="col mt-3 px-5" style="background-color: lightgray"><h5 class="header-cart mt-3">Summary</h5>
             <table style="width:100%">
                 <tr>
                     <td><small>Subtotal</small></td>
@@ -53,13 +53,5 @@ the new sole
         
     </div>
 </div>
-
-<script>
-
-function showDiv() {
-   document.getElementById('welcomeDiv').style.display = "block";
-}
-
-</script>
 
 {% endblock %}
