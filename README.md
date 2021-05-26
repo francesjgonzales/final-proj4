@@ -289,6 +289,7 @@ pip3 install dj_database_url
 - Cart icon svg code copied from [bootstrap](https://icons.getbootstrap.com/icons/basket2/)
 - The code for price cart was copied from [Yi Sheng Lee's project](https://github.com/YiShengLee/Golden-Bee-Shop/blob/master/Cart/templates/view_cart.template.html)
 - Cloudinary, Stripes and checkout code are copied from Paul Chor's [repository](https://github.com/kunxin-chor/tgc8-django-bookreviews/tree/checkpoint-ecommerce-done/checkout) 
+- Scroll to top button was copied from [w3schools.com](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp)
 
 ### Media
 - The product photos used in this site were obtained from nike, adidas and copgarden websites for the purpose of this project only.
