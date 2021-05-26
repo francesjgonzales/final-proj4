@@ -10,7 +10,7 @@
     <div class="media">
         {% for shoe in shoes %}
 
-        {% cloudinary shoe.image width=287 height=300 crop='fill' %}
+        {% cloudinary shoe.image alt="shoe" width=287 height=300 crop='fill' %}
 
         <img src="../static/CP9652_03_standard3.jpg" class="mr-3" alt="..." id="mediumthumbnail">
         <div class="media-body">
@@ -110,7 +110,7 @@
 
 <!-- rating and review -->
 <div class="container">
-    <h1 class="header mt-5">Ratings & Reviews</h1>
+    <h1 class="header mt-5">Ratings &amp; Reviews</h1>
 
     <div class="media mt-5">
         <img src="../static/CP9652_03_standard5.jpg" class="mr-3" alt="..." id="smallthumbnail">
@@ -164,7 +164,9 @@
         </div>
     </div>
 
-    <!-- end rating and review -->
+</div>
+
+<!-- end rating and review -->
 
 
-    {% endblock %}
+{% endblock %}

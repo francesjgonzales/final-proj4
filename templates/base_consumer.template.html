@@ -44,7 +44,7 @@
                         {% if request.user.is_authenticated %}
                         <span class="my-1">{{request.user}}</span>
                         {% else %}
-                        <p><a href="/accounts/signup">Log in</a></p>
+                        <a href="/accounts/signup">Log in</a>
                         {%endif%}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="{% url 'view_cart' %}"><i class="bi bi-cart"></i><span class="ml-2">{{number_of_items}}</span></a></li>

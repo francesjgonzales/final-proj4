@@ -14,21 +14,21 @@
         <p style="text-align: center">{% trans 'Are you sure you want to sign out?' %}</p>
 
         <form method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-        {% endif %}
-        <div class="container">
-            <div class="row justify-content-around">
-                <div class="col">
-                    <button class="btn p-2">{% trans 'Sign Out' %}</button>
-                </div>
-                <div class="col">
-                    <a class="btn p-2" href="{% url 'main_shoe' %}">Cancel</a>
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col">
+                        <button class="btn p-2">{% trans 'Sign Out' %}</button>
+                    </div>
+                    <div class="col">
+                        <a class="btn p-2" href="{% url 'main_shoe' %}">Cancel</a>
 
+                    </div>
                 </div>
             </div>
-        </div>
         </form>
 
     </div>

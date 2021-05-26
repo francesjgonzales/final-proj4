@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<div class="container-sm mt-2" style="border: 1px">
+<div class="container-sm mt-2">
   <div class="row row-cols-3">
     <div class="col"><a href="{% url 'home_page'%}"><img src="{% static 'adidas-Yeezy-Clay-Brown.jpg' %}" class="img-fluid" alt="nike-stone"></a></div>
     <div class="col"><a href="{% url 'home_page'%}"><img src="{% static 'supreme-nike.jpg' %}" class="img-fluid" alt="nike-stone"></a></div>
@@ -34,46 +34,43 @@
             <h2 class="card-title">Collab x brands x artists</h2>
             <p class="card-text">See the latest collabs from Ronnie Fieg's Kith x New Balance to Travis Scott's x Nike/Jordan.</p>
             <a class="btn btn-outline-info" href="{% url 'home_page'%}" role="button">Shop now</a>
-
         </div>
     </div>
-</div>
-
-<div class="container-sm mt-2">
-  <div class="row row-cols-3">
-  <div class="col">
-    <div class="card">
-        <h2 class="card-title">Upcoming</h2>
-        <p class="card-text">Hear what's new. We have the list and details.</p>
-        <a class="btn btn-outline-info" href="{% url 'home_page'%}" role="button">Shop now</a>
-    </div>
-</div>
-    <div class="col"><img src="{% static 'kobe_proto.jpg'%}" class="img-fluid" alt="adidas-yeezy"></div>
-
-
-    <div class="col"><img src="{% static 'nike_space_hippie.jpeg' %}" class="img-fluid" alt="adidas-yeezy"></div>
   </div>
-
 </div>
-
 
 <div class="container-sm mt-2">
   <div class="row row-cols-3">
-  <div class="col"><img src="{% static 'nike-stone.jpg' %}" class="img-fluid" alt="nike-stone"></div>
-    <div class="col"><img src="{% static 'bape.jpg'%}" class="img-fluid" alt="bape"></div>
     <div class="col">
         <div class="card">
-            <h2 class="card-title">In Stock </h2>
-            <p class="card-text">From Air Jordan to Travis Scott collab. We have a range of brands available.</p>
+            <h2 class="card-title">Upcoming</h2>
+            <p class="card-text">Hear what's new. We have the list and details.</p>
             <a class="btn btn-outline-info" href="{% url 'home_page'%}" role="button">Shop now</a>
         </div>
     </div>
+    <div class="col"><img src="{% static 'kobe_proto.jpg'%}" class="img-fluid" alt="adidas-yeezy"></div>
+    <div class="col"><img src="{% static 'nike_space_hippie.jpeg' %}" class="img-fluid" alt="adidas-yeezy"></div>
+    </div>
+</div>
+
+
+<div class="container-sm mt-2">
+  <div class="row row-cols-3">
+    <div class="col"><img src="{% static 'nike-stone.jpg' %}" class="img-fluid" alt="nike-stone"></div>
+        <div class="col"><img src="{% static 'bape.jpg'%}" class="img-fluid" alt="bape"></div>
+        <div class="col">
+            <div class="card">
+                <h2 class="card-title">In Stock </h2>
+                <p class="card-text">From Air Jordan to Travis Scott collab. We have a range of brands available.</p>
+                <a class="btn btn-outline-info" href="{% url 'home_page'%}" role="button">Shop now</a>
+            </div>
+        </div>
+    </div>
+
+
   </div>
-
-
 </div>
     
     
-  </div>
 
 {% endblock %}

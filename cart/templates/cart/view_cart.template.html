@@ -19,7 +19,7 @@ the new sole
         {% for key, i in cart.items %}
 
         <div class="col mt-3 px-5">
-            {% cloudinary i.image width=300 height=180 crop='fill' %}
+            {% cloudinary i.image alt="shoe" width=300 height=180 crop='fill' %}
         </div>
         <div class="col mt-3 px-5">
             <p class="shoeModel">{{i.shoeModel}} </p>

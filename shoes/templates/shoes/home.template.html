@@ -19,7 +19,6 @@ the new sole
             <a href="{% url 'home_consumer'%}" class="btn">Visit Consumer page</a>
             <a href="https://8080-aquamarine-monkey-gz9l7q8a.ws-us07.gitpod.io/admin/" class="btn">Go to admin</a>
         </div>
-    </div>
 </div>
 {% comment %} END welcome admin message {% endcomment %}
 
@@ -35,7 +34,7 @@ the new sole
     <div class="carousel-item active">
       <img src="{% static 'carousel-img1.jpg' %}" class="d-block w-100" alt="adidas-sandals">
       <div class="carousel-caption">
-        <h4 class="heroMain" style="color: black">New Adilette Sandals</h5>
+        <h4 class="heroMain" style="color: black">New Adilette Sandals</h4>
         <p style="color: black">Core Black / Scarlet / True Orange</p>
         <p class="heroPrice" style="color: black">$100</p>
       </div>
@@ -43,7 +42,7 @@ the new sole
     <div class="carousel-item">
       <img src="{% static 'carousel-img2.jpg' %}" class="d-block w-100" alt="bape">
       <div class="carousel-caption">
-        <h4 class="heroMain" style="color: black">A Bathing Ape</h5>
+        <h4 class="heroMain" style="color: black">A Bathing Ape</h4>
         <p style="color: black">Color Camo Bape STA</p>
         <p class="heroPrice" style="color: black">$210</p>
       </div>
@@ -51,13 +50,13 @@ the new sole
     <div class="carousel-item">
       <img src="{% static 'carousel-img3.jpg' %}" class="d-block w-100" alt="nike">
       <div class="carousel-caption">
-        <h4 class="heroMain" style="color: black">Nike</h5>
+        <h4 class="heroMain" style="color: black">Nike</h4>
         <p style="color: black">Nike Air Max Pre-Day</p>
         <p class="heroPrice" style="color: black">$209</p>
       </div>
     </div>
-
   </div>
+  
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true" style="color: grey"></span>
     <span class="visually-hidden">Previous</span>
@@ -85,7 +84,7 @@ the new sole
                 <button class="btn mt-3" type="submit"><i class="bi bi-search"></i></button>
             </div>
             
-            <small><a href="{% url 'home_page' %}" disable class="text-muted"> Clear filter</a></small>
+            <small><a href="{% url 'home_page' %}"> Clear filter</a></small>
 
         </div>    
     </form>
@@ -95,7 +94,7 @@ the new sole
         <div class="col-lg-4 mt-5">
             <div class="card" style="width: 18rem">
 
-                {% cloudinary shoe.image width=286 height=300 crop='fill' %}
+                {% cloudinary shoe.image alt="shoe" width=286 height=300 crop='fill' %}
                 <div class="card-body">
                     <p class="model">{{shoe.brand_name}}</p>
                     <p class="model">{{shoe.shoeModel}}</p>
@@ -109,11 +108,11 @@ the new sole
                     <p>
                         <a class="btn mr-2" href="{% url 'consumer_shoe_info' shoe_id=shoe.id %}" role="button">See more &raquo;</a>
                     </p>
-                    <div>
+                    {% comment %} <div>
                         <p id="addCart" style="display:none">
                             <a class="btn" href="{% url 'add_to_cart' shoe_id=shoe.id %}" role="button">Add to cart &raquo;</a>
                         </p> 
-                    </div>
+                    </div> {% endcomment %}
                     <p>
                         <a class="btn mr-2 mt-2" href="{% url 'shoe_update' shoe_id=shoe.id %}">Edit</a><a class="btn mr-2 mt-2" href="{% url 'delete_shoe' shoe_id=shoe.id %}">Delete</a>
 
