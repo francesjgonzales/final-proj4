@@ -239,18 +239,14 @@ th, td {
   top: 25vh;
 }
 
-@media (max-width: 767.98px) {
-    .heroTxt{
-        position: absolute;
-        left: 10vw;
-        top: 11vh;
-    }
-}
-
-@media (max-width: 767.98px) {
+/* @media (max-width: 767.98px) {
   *, .card-title, .card-text, .card-link, .heroMain, .smaller, .shop-now, .heroPrice, .heroSub {
-    font-size: 15px;
+    font-size: 11px;
   }
+} */
+
+.hero-image {
+      position: absolute;
 }
 
 .shop-now {
@@ -284,15 +280,20 @@ th, td {
 
 .btn-outline-info {
     color: black;
-    width: 10vw;
 }
 
+@media (max-width: 767.375) {
+    .btn-outline-info{
+        font-size: 11px;
+    }
+}
 
-@media (max-width: 767.98px) {
+@media (max-width: 767.375) {
     .btn-outline-dark{
         position: absolute;
         left: 10vw;
         top: 11vh;
+        font-size: smaller;
     }
 }
 
@@ -305,13 +306,9 @@ div[content~=In-stock] { display:inline; }
 }
 
 @media (max-width: 767.98px) {
-    .carousel-caption {
+    .carousel-caption, .heroTxt {
         display: none;
     }
-}
-
-aside {
-  display: block;
 }
 
 #myBtn {
@@ -334,3 +331,21 @@ aside {
   background-color: #555;
 }
 
+
+@media (min-width: 600px) {
+    .card-mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .carousel-caption, .heroTxt, .upcoming, .collab, .inStock {
+        display: none;
+    }
+}

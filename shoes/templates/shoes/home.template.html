@@ -17,7 +17,7 @@ the new sole
             <p class="card-text">This page is dedicated for sellers to manage the product list page. This message will not appear in consumer product list page.</p>
             <a href="{% url 'create_shoe'%}" class="btn">Add shoes</a>
             <a href="{% url 'home_consumer'%}" class="btn">Visit Consumer page</a>
-            <a href="https://8080-aquamarine-monkey-gz9l7q8a.ws-us07.gitpod.io/admin/" class="btn">Go to admin</a>
+            <a href="{% url 'admin'%}" class="btn">Go to admin</a>
         </div>
 </div>
 {% comment %} END welcome admin message {% endcomment %}

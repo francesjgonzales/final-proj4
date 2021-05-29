@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.urls import path
 
 import shoes.views
@@ -16,5 +17,6 @@ urlpatterns = [
     path('delete_shoe/<shoe_id>', shoes.views.delete_shoe,
          name='delete_shoe'),
     path('contact', shoes.views.contact, name='contact'),
+    path('admin', admin.site.index, name='admin'),
 
 ]
