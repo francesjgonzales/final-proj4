@@ -64,7 +64,7 @@ def checkout(request):
 
 def checkout_success(request):
     request.session['shopping_cart'] = {}
-    return HttpResponse("Checkout success")
+    return HttpResponse("Checkout Success")
 
 
 def checkout_cancelled(request):
