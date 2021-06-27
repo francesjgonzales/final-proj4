@@ -64,9 +64,7 @@ def checkout(request):
 
 def checkout_success(request):
     request.session['shopping_cart'] = {}
-    return render(request, 'shoes/home_consumer.template.html', {
-        'shoes': shoes
-    })
+    return HttpResponse("Checkout success")
 
 
 def checkout_cancelled(request):
