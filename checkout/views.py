@@ -64,11 +64,13 @@ def checkout(request):
 
 def checkout_success(request):
     request.session['shopping_cart'] = {}
-    return HttpResponse("Payment completed successfully")
+    return render(request, 'shoes/home_consumer.template.html', {
+        'shoes': shoes
+    })
 
 
 def checkout_cancelled(request):
-    return HttpResponse("Checkout cancelled")
+    return render(reverse("cart"))
 
 
 @csrf_exempt
@@ -96,7 +98,6 @@ def payment_completed(request):
         session = event['data']['object']
         handle_payment(session)
 
-    print(request.body)
     return HttpResponse(status=200)
 
 
