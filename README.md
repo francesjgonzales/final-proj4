@@ -5,13 +5,21 @@ An e-commerce website selling limited edition shoes. The working title for a sho
 
 This project is inspired by my husband's enthusiasm for buying and selling unique, timeless branded shoes.
 
-Here's deployed heroku app - https://fg-proj4-the-new-sole.herokuapp.com/
+Here's the deployed heroku app for [**Admin Testing**](https://fg-proj4-the-new-sole.herokuapp.com/)
 
-These login details can be used for SuperUser testing 
+Login details for **admin testing**
+|User | Password |
+|--|--|
+|eleven | eleven123|
 
-User: eleven
-Password: eleven123
 
+
+Here's the deployed heroku app for [**Consumer Testing**](https://fg-proj4-the-new-sole.herokuapp.com/home_consumer)
+
+Login details for **consumer testing**
+|User | Password|
+|--|--|
+|consumer-test  | twelve123 |
 
 
 ## UX
@@ -49,7 +57,7 @@ I interviewed my husband to know more about the quality, price of limited editio
 2. Facebook Marketplace
 
 
-**For ideas in creating wireframe for the 'kicks&sole' website, I did a simple hands-on test using [stocksx.com](https://stockx.com/) as my main reference with my husband. These are the directions / questions I asked him.**
+**For ideas in creating wireframe for the 'the new sole' website, I did a usability test using [stocksx.com](https://stockx.com/) as my main reference with my husband. These are the directions / questions I asked him.**
 
 <dl>
   <dt>Imagine you are about to buy a potential shoes, which part of the page do you first check?</dt>
@@ -129,34 +137,88 @@ and [mobile wireframe](https://www.figma.com/proto/UOeEbZ3kND6oXprh5DoQfc/theNew
 
 
 
-## Features
+## Features and User stories
 
-Here are what I intend to feature in the website
- 
 ### Existing Features
-- **Admin page** - this is the first page that shows up when deployed link is clicked. 
-    - **Home** - this allows superuser to navigate to Admin page when they are in different page.
-    - **Add Shoe** - this allows superuser to add a product in a faster and easier access. 
-    - **Shop** - this allows superuser to check the product page when there's an additional product or when a product is edited or deleted. 
-    - **Test Site** - this allows superuser to view the page in a consumers' point of view. This shows the **Shop** page but without the Create, Edit and Delete buttons of the product. The **Test Site** button is also hidden. 
-    - **Login / Logout** - this is a compulsory for superuser to login in order to access the Admin page. 
 
+The website will feature the following:
 
-- **Consumer page** - when **Test Site** is clicked, it leads to the consumer page. Here are a list of what consumer can do to interact with the e-commerce page. 
-    - **Main page** - this allows shoe enthusiast or shoe reseller to check the popular, and new release shoes. Prices and model names are shown together with the product images. 
+#### Admin Page 
+- **Login Page** - this is the first page that shows up when admin clicked on deployed link
+- **Sign up page** - For users who haven't created an account yet.
+- **Homepage** - Welcome page with hero image and introduction of the website
+- **Product Listing Page** - shows product listing page with Admin's sub menu navigation component
+    - **Carousel** - 3 carousel images are shown to showcase popular and new released shoe models
     - **Search bar** - this allows shoe enthusiast or shoe reseller users to check on shoe model's availability or shoe sizes. It will lead to a display result page. Shoe sizes and tags are not in function yet and to be added in later development. 
-    - **Shoe Specification** - this allows shoe enthusiast or shoe reseller to view the product feature and size availability. Also to add the product to cart.
-        - **You might also like** - when consumer scrolls down this page, this section is shown. The idea is to filter the products based on selected shoes. This will be done in later development. The idea now is to show this section in the page is available. 
-         - **Ratings & Review** - this allows shoe enthusiast and reseller to have a more detailed research about the product and will help them create a decision in adding it to cart. (Function to be added in later development)
-         - **Write your review** - This page is for shoe enthusiast / reseller to answer a short form about the product. A login is required to access this feature. (Function to be added in later development)
-            **There's a total of 6 inputs to fill up and answer.**
-                1. **Star Ratings** - There's an overall rating of up to 5 stars available for shoe enthusiast and resellers to rate a product. (Function to be added in later development)
-                2. **Opinion** - Consumer to write a one sentence opinion about the product. (Layout to be improved and function to be added in later development)
-                3. **Details** - Consumer to write a detailed review about the shoes. (Layout to be improved and function to be added in later development)
-                4. **Recommend** - This is answerable by yes or no by consumer. (Function to be added in later development)
-            
-        - **Add to cart** - this allows shoe enthusiast or shoe reseller to add products to a cart and checkout. 
+    - **Product list** - this shows a list of shoes added by admin. User can categorise the shoe models by **In-stock**, **Upcoming**, & **Sold-out**
+    
+    
+- **Admin Sub Menu**
+    - **Add Shoe** - this allows user to add a product in a faster and easier access. 
+    - **Visit Consumer page** - this allows user to view the page in a consumers' point of view. This shows the **Shop** page but without the Create, Edit and Delete buttons of the product.
+    - **Go to Admin** - this allows user to check Django administration page
    
+
+- **Product Display Page** - shows the shoe model's product description, shoe size, add to card
+   - **Shoe Specification** - this allows shoe enthusiast or shoe reseller to view the product feature and size availability. Also to add the product to cart.
+   - **You might also like** - when consumer scrolls down this page, this section is shown. The idea is to filter the products based on selected shoes. This will be done in later development. The idea now is to show this section in the page is available. 
+   - **Ratings & Review** - this allows shoe enthusiast and reseller to have a more detailed research about the product and will help them create a decision in adding it to cart. (Function to be added in later development)
+   - **Write your review** - This page is for shoe enthusiast / reseller to answer a short form about the product. A login is required to access this feature. (Function to be added in later development)
+   - **There's a total of 6 inputs to fill up and answer.**
+    1. **Star Ratings** - There's an overall rating of up to 5 stars available for shoe enthusiast and resellers to rate a product. (Function to be added in later development)
+    2. **Opinion** - consumer can write a one sentence opinion about the product. (Layout to be improved and function to be added in later development)
+    3. **Details** - consumer can write a detailed review about the shoes. (Layout to be improved and function to be added in later development)
+    4. **Recommend** - This is answerable by yes or no by consumer. (Function to be added in later development)
+   - **Add to cart** - this allows shoe enthusiast or shoe reseller to add products to a cart and checkout
+- **Logout** - User can logout from the admin page
+
+| User Stories   |      Features      |  Remarks |
+|----------|:-------------:|------:|
+| User can click on the admin-testing website |  Homepage (Admin) | Pass |
+| User can sign up for an account | Sign up page  |  Pass  |
+| User can login to an account |  Login page  | Pass |
+| User can navigate to Shop |  Shop page | Pass |
+| User can add a shoe model |  Front-end Admin page > Create Shoe page | Pass |
+| User can edit the shoe model |  Front-end Admin page > Edit Shoe page | Pass |
+| User can delete the shoe model |  Front-end Admin page > Delete Shoe page | Pass |
+| User can user search  bar |  Search | Pass |
+| User can navigate to Django Administration |  Django Admin page | Pass |
+| User can navigate to product display page |  PDP | Pass |
+| User can purchase the shoe model  |  Stripe Purchase page | Pass |
+| User can navigate back to Checkout page |  Checkout success page  | Pass |
+| User can check the purchased shoe in backend |  Django Admin page  | Pass |
+| User can write a review  |  Ratings and Review page  | CRUD on write reviews - For later development. |
+| User can logout from page |  Checkout success page  | Pass on backend. Front-end for later development |
+| User can submit an order query  |  Contact page  | CRUD on contact page - For later development. |
+| User can check on related items after clicking on shoe model from PLP | PDP > You might also like | Algorithm - For later development. |
+| User can view this website in other devices |  Checkout success page  | Pass |
+| User can navigate back to Checkout page |  Mobile responsiveness | Pass |
+
+
+#### Consumer page
+- **Main page** - this allows shoe enthusiast or shoe reseller to check the popular, and new release shoes. Prices and model names are shown together with the product images. 
+- **Login Page** - login is required for consumers to be able to buy the 
+- **Sign up page** - For users who haven't created an account yet.
+- **Homepage** - Welcome page with hero image and introduction of the website
+- **Product Listing Page (PLP)** - shows product listing page with Admin's sub menu navigation component
+    - **Carousel** - 3 carousel images are shown to showcase popular and new released shoe models
+    - **Search bar** - this allows shoe enthusiast or shoe reseller users to check on shoe model's availability or shoe sizes. It will lead to a display result page. Shoe sizes and tags are not in function yet and to be added in later development. 
+    - **Product list** - this shows a list of shoes added by admin. User can categorise the shoe models by **In-stock**, **Upcoming**, & **Sold-out**
+   
+| User Stories   |      Features      |    Remarks   |
+|----------|:-------------:|------:|
+| User can click on the consumer-testing website before logging in | Homepage (Consumer) | Pass |
+| User can view consumer homepage after logging in | Homepage (Consumer) | Navigation - For later development |
+| User can view the product listing page | PLP | Pass |
+| User can view the product display page | PDP | Pass. Image media query for later development |
+| User can add shoe in cart | Shopping cart page | Pass |
+| User can purchase the shoe model  | Stripe Purchase page | Pass |
+| User can navigate back from Checkout page | Checkout success page  | Success on backend. Front-end - For later development |
+| User can write a review | Ratings and Review page | CRUD on write reviews - For later development |
+| User can logout from page | Logout page | Pass |
+| User can submit an order query  | Contact page | CRUD on contact page - For later development |
+| User can check on related items after clicking on shoe model from PLP | PDP > You might also like | Algorithm - For later development |
+| User can view this website in other devices | Mobile responsiveness | Pass |
 
 
 ### Features Left to Implement
@@ -198,7 +260,22 @@ In this section, these are the tools, languages, frameworks, and libraries I use
 
 ## Testing
 
-There are two tests made based on [**SuperUser**](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-SuperUser.pdf) and [**Consumer**](https://github.com/francesjgonzales/final-proj4/blob/master/static/Testing-Consumer.pdf)
+There are 2 types of testing done. Please refer to **Features and User Stories** for more details.
+
+Here's the deployed heroku app for [**Admin Testing**](https://fg-proj4-the-new-sole.herokuapp.com/)
+
+Login details for **admin testing**
+|User | Password |
+|--|--|
+|eleven | eleven123|
+
+
+Here's the deployed heroku app for [**Consumer Testing**](https://fg-proj4-the-new-sole.herokuapp.com/home_consumer)
+
+Login details for **consumer testing**
+|User | Password|
+|--|--|
+|consumer-test  | twelve123 |
 
 
 ## Deployment
